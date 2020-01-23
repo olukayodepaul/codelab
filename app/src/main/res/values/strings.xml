@@ -1,0 +1,145 @@
+<resources>
+    <string name="shr_app_name">Ace Digital</string>
+    <string name="shr_hint_username">Username</string>
+    <string name="shr_hint_password">Password</string>
+    <string name="shr_button_next">Next</string>
+    <string name="shr_button_cancel">Cancel</string>
+    <string name="shr_error_password">Password must contain at least 8 characters.</string>
+    <string name="shr_filter_title">Filter</string>
+    <string name="shr_search_title">Search</string>
+    <string name="shr_product_title">Title</string>
+    <string name="shr_product_description">Secondary text</string>
+
+    <!-- Shrine backdrop menu labels -->
+    <string name="shr_featured_label">Featured</string>
+    <string name="shr_apartment_label">Apartment</string>
+    <string name="shr_accessories_label">Accessories</string>
+    <string name="shr_shoes_label">Shoes</string>
+    <string name="shr_tops_label">Tops</string>
+    <string name="shr_bottoms_label">Bottoms</string>
+    <string name="shr_dresses_label">Dresses</string>
+    <string name="shr_account_label">My Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back">Back</string>
+    <string name="logo_request">Logo Request</string>
+    <string name="brand_name">Brand Name</string>
+    <string name="inspiration">Inspiration</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="continue_as_guest">Continue as guest</string>
+    <string name="or">Or</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="sign_in_with_facebook">Sign In with Facebook</string>
+    <string name="brand_amp_design_the_right_way"><![CDATA[Brand & Design the right way]]></string>
+    <string name="cancel">cancel</string>
+    <string name="confirm">confirm</string>
+    <string name="logout">Logout</string>
+    <string name="colors">Colors</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="flyers">Flyers</string>
+    <string name="contents">Content</string>
+    <string name="font_s_choice">Font(s) Choice</string>
+    <string name="color_choice">Color Choices</string>
+    <string name="dimension">Dimension</string>
+    <string name="kindly_select_logo_to_upload">Kindly select logo to upload</string>
+    <string name="campaign">Campaign</string>
+    <string name="background">Background</string>
+    <string name="objectives">Objectives</string>
+    <string name="upload_character">Upload Character</string>
+    <string name="i_don_t_have_a_character_to_upload">I don\'t have a character to upload</string>
+    <string name="branding_amp_merchandizing"><![CDATA[Branding & Merchandising]]></string>
+    <string name="storyboard">Storyboard</string>
+    <string name="select_script_to_upload">Upload Script</string>
+    <string name="banner">Banners</string>
+    <string name="i_love_my_banner_static">I love my banner static</string>
+    <string name="i_love_my_banner_animated">I love my banner animated</string>
+    <string name="influence_booking">Influencer Booking</string>
+    <string name="influencer">Influencer</string>
+    <string name="facebook">Facebook</string>
+    <string name="images_mode">I want images</string>
+    <string name="videos_mode">I want videos</string>
+    <string name="social_media_engagement">Social Media Engagement</string>
+    <string name="brand_info">Brand Info</string>
+    <string name="success_request">Your request has been received, Click Pay to complete request.</string>
+    <string name="clear">Clear</string>
+    <string name="build_up_to_1k_followers_in_3_months">Build up to 1000 active followers in 3 months</string>
+    <string name="get_up_to_5k_followers_in_6_months">Get up to 5k followers in 6 months</string>
+    <string name="get_over_20k_followers_in_1_year">Get over 20k followers in 1 year</string>
+    <string name="_10_000_impressions_in_3_months">100,000 impressions in 3 months</string>
+    <string name="over_25k_impressions_in_6_months">Over 25k impressions in 6 months</string>
+    <string name="over_50k_impressions_in_1_year">Over 50k impressions in 1 year</string>
+    <string name="not_logged_in_message">You need to login to make a request</string>
+
+    <string name="transition_image">imageTransition</string>
+    <string name="transition_subtitle">subtitleTransition</string>
+    <string name="transition_card">cardTransition</string>
+    <string name="please_sign_in">Please sign in</string>
+    <string name="email">Email</string>
+    <string name="forgotten_your_password">Forgotten your password?</string>
+    <string name="login_info">Enter your Ace digital account details for a personalised experience.</string>
+    <string name="full_name">Full name</string>
+    <string name="phone">Phone</string>
+    <string name="company">Company</string>
+    <string name="register">Register</string>
+    <string name="settings">Settings</string>
+    <string name="save">Save</string>
+    <string name="invalidEmail">Please enter a valid email address.</string>
+    <string name="nameRequiredError">Full name is required.</string>
+    <string name="companyRequiredError">Company name is required.</string>
+    <string name="invalidPassword">Your password must be at least 6 characters.</string>
+    <string name="retryText">RETRY</string>
+    <string name="failedRegistration">Account registration failed.</string>
+    <string name="successfulRegistration">Great, your account is ready to use right away</string>
+    <string name="loginText">LOGIN</string>
+    <string name="requiredPassword">Password field is required.</string>
+    <string name="card_number">Card number</string>
+    <string name="cvv">CVV</string>
+    <string name="mm">MM</string>
+    <string name="yyyy">YYYY</string>
+    <string name="create_token">Create token</string>
+    <string name="no_card_yet">No card yet</string>
+    <string name="no_token">No token</string>
+    <string name="token_null_message">Token was null</string>
+    <string name="token_not_gotten">Unable to get token</string>
+    <string name="sample_card">4123450131001381</string>
+    <string name="sample_cvv">883</string>
+    <string name="sample_month">01</string>
+    <string name="sample_year">2020</string>
+    <string name="no_transaction_yet">No transaction yet</string>
+    <string name="amount_in_kobo">Amount in Kobo</string>
+    <string name="logo_request_desc">Let\'s design the perfect logo for your business</string>
+    <string name="logo_design">Logo Design</string>
+    <string name="logo_brand_name_desc"><![CDATA[Kindly provide the name of the brand we\'ll be designing this logo for. Please ensure you only provide the brand name & not include extra details]]></string>
+    <string name="logo_inspiration_question">Are there existing business logos that inspire you?</string>
+    <string name="next">Next</string>
+    <string name="choose">Choose</string>
+    <string name="submit_request_string">Submit Request</string>
+    <string name="illustration_2d_3d"><![CDATA[Illustration (2d & 3d)]]></string>
+    <string name="create_an_account">Create an account</string>
+    <string name="minimum">Minimum of 2 contents per day (Instagram and Facebook)</string>
+    <string name="_14_content_per_week">14 content per week (Instagram and Facebook)</string>
+    <string name="_56_per_month_and_6_animated">56 per month and 6 animated content per month. (Instagram and Facebook)</string>
+    <string name="_25_interactive_tweet">25 interactive tweets per month for twitter</string>
+    <string name="_3_contents_per_week_12_content">3 contents per week, 12 contents per month for LinkedIn</string>
+    <string name="upload_complete">Upload Complete</string>
+    <string name="request_catalog">Request Catalog</string>
+    <string name="success_no_payment_string">Congrats! You have made a request. A member of our team will contact you to follow up your request</string>
+    <string name="linkdin">LinkedIn Image Dimensions | File Sizes Banner image: 1584 x 396 | maximum 4 MB Profile image: 400 x 400 (minimum 200 x 200) | maximum 10 MB Company Cover image: 1536 x 768 Shared image: 350 pixels wide Shared link preview: 180 x 110 Company logo image: 300 x 300 | maximum 4 MB Company cover image: 1536 x 768 (minimum 1192 x 220) | maximum 4 MB Company page banner image: 646 x 220 | maximum 2 MB Square logo (appears in company searches): 60 x 60 | maximum 2 MB</string>
+    <string name="youtube_dimensions">YouTube Image Dimensions | File Sizes Channel cover images: 2560 x 1440 | maximum 4 MB Channel icon: 800 x 800 Video thumbnail: 1280 x 720</string>
+    <string name="instagram_dimensions">Instagram Image Dimensions | File Sizes Profile image: 110 x 110 Image thumbnail: 161 x 161 Shared photos: 1080 x 1080 Shared videos: 1080 pixels wide Instagram Stories: 1080 x 1920 (minimum 600 x 1067) | maximum 4 GB</string>
+    <string name="twitter_dimensions">Twitter Image Dimensions | File Sizes Header image: 1500 x 500 | maximum 5 MB Profile image: 400 x 400 | maximum 2 MB In-stream image: 440 x 220</string>
+    <string name="facebook_dimensions">Facebook Image Dimensions | File Sizes Cover image: 820 x 312 (minimum 400 x 150) Profile image: 180 x 180 Shared post image: 1200 x 630 Shared link preview image: 1200 x 628 Event image: 1920 x 1080</string>
+    <string name="snapchat_dimensions">Snapchat Image Dimensions Geofilters, ads, and lenses: 1080 x 1920</string>
+    <string name="finalize_payment">Congrats! You have made a request. A member of our team will contact you to follow up your request. Kindly click the payment button to finalize your request</string>
+    <!--<string name="default_web_client_id">480228879948-tj1tiu5h1bj6dma2n9vqg3d2o402fp3q.apps.googleusercontent.com</string>-->
+
+    <array name="menuOptions">
+        <item>Home</item>
+        <item>Settings</item>
+        <item>Support</item>
+        <item>Subscriptions</item>
+    </array>
+</resources>

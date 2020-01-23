@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:opacity="opaque">
+
+    <item android:drawable="@color/colorPrimary" />
+
+    <!-- Set the Background Image-->
+    <item
+        android:drawable="@drawable/ic_logo_ace"
+        android:gravity="center"
+        android:left="@dimen/_14sdp"
+        android:right="@dimen/_14sdp">
+
+    </item>
+
+
+</layer-list>

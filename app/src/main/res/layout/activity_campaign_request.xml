@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobbile.paul.shrine.formActivities.CampaignRequestActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/main.collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/main.backdrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_category_design_campaign"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="parallax"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_60sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:text="Desire results? We'll create a plan that gets you there"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="@color/colorWhite"
+                android:textStyle="normal"
+                android:transitionName="@string/transition_subtitle"
+                app:layout_collapseMode="parallax" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FEF7E5"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ProgressBar
+            android:id="@+id/progress_total"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:indeterminate="false"
+            android:progressBackgroundTint="#e9e6e2"
+            android:progressTint="#5a5958" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:text="@string/campaign"
+                android:visibility="gone"
+                android:textColor="#474243"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/product_title"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:text="Desire results? We'll create a plan that gets you there"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="#474243"
+                android:textStyle="normal"
+                android:transitionName="@string/transition_subtitle" />
+        </RelativeLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp">
+
+            <LinearLayout
+                android:id="@+id/page_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number01"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/product_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="What are your objectives for this campaign?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/objectivesEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view"
+                        android:text="This helps us streamline our strategies to meet your demands for better effectiveness."
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                    <View
+                        android:id="@+id/hint_view"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/page_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number02"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="What other relevant information related to this campaign, do you consider important for us to know?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/relativeInfoEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textFilter|textMultiLine"
+                    android:background="@android:color/white"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_2"
+                        android:text="Please, think carefully, as ensuring we have all necessary information will help in improving campaign planning sessions"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                    <View
+                        android:id="@+id/hint_view_2"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/page_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number03"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="Who do you consider your key competitiors?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/competitorsEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_3"
+                        android:text="Identifying and understanding your competition, always gives you a chance to stay ahead and will also, aid us in the planning process of this campaign."
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                    <View
+                        android:id="@+id/hint_view_3"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/page_four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number04"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="What are your key milestones for this campaign?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/milestoneEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_4"
+                        android:text="Most preferably, please indicate milestones with dates, for proper reference. (Milestones may include launch date, end of campaign date and other milestones in between. E.g. Launch Date - Jab 7, 1990)"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                    <View
+                        android:id="@+id/hint_view_4"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/page_five"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number05"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="What is your budget for the campaign?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/budgetEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+
+                    <View
+                        android:id="@+id/hint_view_5"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_5"
+                        android:text="Knowing the scope of your budget, helps us create a roll out plan that distributes available funds most effectively accross strategic channels and touch points, for the most effective results"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/page_six"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number06"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="What are your campaign deliverables?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/deliverableEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+
+                    <View
+                        android:id="@+id/hint_view_6"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_6"
+                        android:text="Should you need specific documentations or other special deliverables, please ensure to list them carefully for our attention"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/page_seven"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number07"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="What are your aspirations? This may, or may not be related to products or services."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/aspirationsEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+
+                    <View
+                        android:id="@+id/hint_view_7"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_7"
+                        android:text="We consider this of extreme importance, and part of our client insight, helping us understand you, and what makes you tick"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/page_eight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number08"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="What are your product/service features?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/featuresEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+
+                    <View
+                        android:id="@+id/hint_view_8"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_8"
+                        android:text="Kindly give a concise description of your product or service features, help us best understand how it works"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/page_nine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number09"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="How exactly do these features benefit the customer?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#474243"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/benefitEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:inputType="textFilter|textMultiLine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_18sdp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+
+                    <View
+                        android:id="@+id/hint_view_9"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#ece1d6" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/hint_view_9"
+                        android:text="In planning a campaign, having a proper product feature(s) benefit analysis, is crucial in working towards a successful acceptance in the market space"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="#474243"
+                        android:textStyle="normal" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </androidx.viewpager.widget.ViewPager>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/loadingButtonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_weight="1"
+        android:animateLayoutChanges="true">
+
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:backgroundTint="#5a5958"
+            android:contentDescription="next"
+            android:text="@string/next"
+            android:textColor="@color/colorSuccess"
+            android:tint="@color/colorSuccess"
+            app:icon="@drawable/ic_chevron_right"
+            app:iconTint="@color/colorSuccess"
+            app:tint="@color/colorSuccess" />
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

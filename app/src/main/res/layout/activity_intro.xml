@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:fitsSystemWindows="true"
+    tools:context="com.mobbile.paul.shrine.activity.IntroActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_230sdp"
+        app:srcCompat="@drawable/ic_acesvglogo"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/guest_button"
+            style="@style/Widget.Shrine.Button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginStart="@dimen/_26sdp"
+            android:layout_marginEnd="@dimen/_26sdp"
+            android:background="@color/colorLogoBlue"
+            android:backgroundTint="@color/colorLogoBlue"
+            android:text="visit as a guest"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginButton"
+            style="@style/Widget.Shrine.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginStart="@dimen/_26sdp"
+            android:background="@color/colorControlActivated"
+            android:backgroundTint="@color/colorControlActivated"
+            android:textColor="@color/colorBlack"
+            android:textAllCaps="true"
+            android:layout_marginEnd="@dimen/_26sdp"
+            android:text="Login" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

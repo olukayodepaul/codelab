@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "316628222854",
+    "firebase_url": "https://acedigital-499f6.firebaseio.com",
+    "project_id": "acedigital-499f6",
+    "storage_bucket": "acedigital-499f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316628222854:android:2e07c55f34f64d85",
+        "android_client_info": {
+          "package_name": "com.mobbile.paul.codelab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316628222854-b8k1s5nld0b92p6g3qae6gp42b686u71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobbile.paul.codelab",
+            "certificate_hash": "2de0466c5f94fb169c13c26407c415ef5a4b4284"
+          }
+        },
+        {
+          "client_id": "316628222854-ghnqhvjdfga5nue5hf79cq3m7cj44d4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE2V3csXLn1e20w2pH9pTeLqYzy-oTm0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316628222854-ghnqhvjdfga5nue5hf79cq3m7cj44d4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

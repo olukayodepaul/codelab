@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Logo",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/0-0.jpg",
+    "price": "$120",
+    "description": "Let's design the perfect logo for your business"
+  },
+
+  {
+    "id": 3,
+    "title": "Social Media Engagement",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/2-0.jpg",
+    "price": "$35",
+    "description": "Your customers are online, let's bring them to you"
+  },
+  {
+    "id": 4,
+    "title": "Influencer Bookings",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/3-0.jpg",
+    "price": "$98",
+    "description": "Some voices are louder and spread faster and farther. Let's get them speaking for you"
+  },
+  {
+    "id": 2,
+    "title": "Social Media Banners",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/1-0.jpg",
+    "price": "$58",
+    "description": "Get the right placements for your digital creatives."
+  },
+  {
+    "id": 5,
+    "title": "Story Boards",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/4-0.jpg",
+    "price": "$34",
+    "description": "You story it, we picture it. What's your story"
+  },
+
+  {
+    "id": 7,
+    "title": "Branding & Merchandising",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/6-0.jpg",
+    "price": "$16",
+    "description": "Meet your customers through branded merchandise."
+  },
+  {
+    "id": 8,
+    "title": "Illustration",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/7-0.jpg",
+    "price": "$40",
+    "description": "Experience the genius in the stroke of our pen"
+  },
+  {
+    "id": 9,
+    "title": "Campaign",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/7-0.jpg",
+    "price": "$40",
+    "description": "Desire results? We'll create a plan that gets you there."
+  },
+  {
+    "id": 9,
+    "title": "Stationary",
+    "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/7-0.jpg",
+    "price": "$40",
+    "description": "Desire results? We'll create a plan that gets you there."
+  }
+]

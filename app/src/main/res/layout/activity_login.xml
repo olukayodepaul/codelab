@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <Button
+        android:id="@+id/guest_button"
+        style="@style/Theme.AppCompat.Light"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@id/imageMain"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorAccent"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/continue_as_guest"
+        android:textAllCaps="false"
+        android:textColor="#fff" />
+
+
+    <Button
+        android:id="@+id/googleButton"
+        style="@style/Theme.AppCompat"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@id/guest_button"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_google_button"
+        android:drawableStart="@drawable/ic_google"
+        android:drawableLeft="@drawable/ic_google"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="@string/continue_with_google"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+        android:textColor="#000" />
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ic_logo_ace" />
+
+    <ImageView
+        android:id="@+id/imageMain"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/shr_product_grid_spacing"
+        android:layout_marginBottom="20dp"
+        android:text="@string/brand_amp_design_the_right_way"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="#000"
+        android:theme="@style/Theme.Shrine"
+        app:fontFamily="@font/montserrat" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        tools:context=".LoginActivity" />
+    <!--<Button-->
+    <!--android:id="@+id/facebookButton"-->
+    <!--style="@style/Theme.AppCompat"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="44dp"-->
+    <!--android:layout_below="@id/googleButton"-->
+    <!--android:layout_marginStart="20dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:layout_marginEnd="20dp"-->
+    <!--android:background="#3B5998"-->
+    <!--android:drawableStart="@drawable/ic_facebook"-->
+    <!--android:drawableLeft="@drawable/ic_facebook"-->
+    <!--android:paddingStart="20dp"-->
+    <!--android:paddingEnd="20dp"-->
+    <!--android:text="@string/sign_in_with_facebook"-->
+    <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"-->
+    <!--android:textColor="#fff"-->
+    <!--app:fontFamily="@font/nunito" />-->
+
+</RelativeLayout>
+

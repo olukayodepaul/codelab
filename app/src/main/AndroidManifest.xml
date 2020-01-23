@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mobbile.paul.codelab">
+
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.INTERNET" />
+
+<application
+    android:name="com.mobbile.paul.shrine.application.ShrineApplication"
+    android:allowBackup="false"
+    android:icon="@mipmap/ic_launcher"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.Shrine"
+    tools:ignore="GoogleAppIndexingWarning"
+    tools:replace="android:allowBackup">
+    <activity android:name="com.mobbile.paul.shrine.formActivities.BannersRequestActivity"></activity>
+    <activity android:name="com.mobbile.paul.shrine.formActivities.StationaryActivity" />
+    <activity android:name="com.mobbile.paul.shrine.formActivities.BrandingRequestActivity" />
+    <activity android:name="com.mobbile.paul.shrine.activity.SuccessSubmitActivity" />
+    <activity
+        android:name="com.mobbile.paul.shrine.activity.IntroActivity"
+        android:screenOrientation="portrait" />
+
+    <service android:name="com.mobbile.paul.shrine.fcm.FcmMessagingService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+    </service>
+
+    <activity
+        android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
+        android:launchMode="singleTask">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="${applicationId}.braintree" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name="com.mobbile.paul.shrine.formActivities.IllustrationActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize" />
+    <activity
+        android:name="com.mobbile.paul.shrine.formActivities.CampaignRequestActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize" />
+    <activity
+        android:name="com.mobbile.paul.shrine.formActivities.StoryboardRequestActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize" />
+    <activity
+        android:name="com.mobbile.paul.shrine.formActivities.InfluencerRequestActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize" />
+    <activity
+        android:name="com.mobbile.paul.shrine.formActivities.SocialMediaActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize" />
+    <activity
+        android:name="com.mobbile.paul.shrine.activity.SettingsActivity"
+        android:screenOrientation="portrait" />
+    <activity
+        android:name="com.mobbile.paul.shrine.activity.SplashScreenActivity"
+        android:screenOrientation="portrait">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name="com.mobbile.paul.shrine.activity.PaymentActivity"
+        android:screenOrientation="portrait" />
+    <activity
+        android:name="com.mobbile.paul.shrine.activity.SignUpActivity"
+        android:screenOrientation="portrait" />
+    <activity
+        android:name="com.mobbile.paul.shrine.activity.Onboarding"
+        android:screenOrientation="portrait" />
+    <activity
+        android:name="com.mobbile.paul.shrine.activity.NewLoginActivity"
+        android:screenOrientation="portrait" />
+    <activity
+        android:name="com.mobbile.paul.shrine.formActivities.LogoRequestActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize" />
+    <activity
+        android:name="com.mobbile.paul.shrine.LoginActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+    <activity
+        android:name="com.mobbile.paul.shrine.MainActivity"
+        android:screenOrientation="portrait" />
+
+    <meta-data
+        android:name="co.paystack.android.PublicKey"
+        android:value="pk_live_8931e560c412814f4e1a006c5c89830355cb4612" />
+</application>
+
+</manifest>

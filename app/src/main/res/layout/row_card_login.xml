@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/cardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:transitionName="@string/transition_card"
+    app:cardBackgroundColor="@color/colorBlack"
+    app:cardUseCompatPadding="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/intro_image"
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/intro_page_3"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/product_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="Logo Design"
+            android:visibility="gone"
+            android:textColor="#fff"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textSize="@dimen/_18sdp"
+            />
+
+
+        <TextView
+            android:id="@+id/product_description"
+            android:layout_width="match_parent"
+            android:layout_below="@id/product_title"
+            android:layout_height="wrap_content"
+            android:transitionName="@string/transition_subtitle"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:text="3 steps to creating the logo design of your dreams"
+            android:textAppearance="?attr/textAppearanceBody2" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/product_image"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:scaleType="centerInside"
+            android:transitionName="@string/transition_image"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
