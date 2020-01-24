@@ -8,7 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.google.codelabs.mdc.java.shrine.R;
+import com.mobbile.paul.codelab.R;
+
 
 public class StaggeredProductCardViewHolder extends RecyclerView.ViewHolder {
 

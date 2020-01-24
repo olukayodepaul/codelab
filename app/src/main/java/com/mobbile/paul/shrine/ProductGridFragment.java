@@ -16,20 +16,21 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 
-import com.google.codelabs.mdc.java.shrine.activity.SettingsActivity;
-import com.google.codelabs.mdc.java.shrine.adapters.SideMenuAdapter;
-import com.google.codelabs.mdc.java.shrine.formActivities.BannersRequestActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.BrandingRequestActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.CampaignRequestActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.IllustrationActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.InfluencerRequestActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.LogoRequestActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.SocialMediaActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.StationaryActivity;
-import com.google.codelabs.mdc.java.shrine.formActivities.StoryboardRequestActivity;
-import com.google.codelabs.mdc.java.shrine.listeners.onFragmentActivatedListener;
-import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
-import com.google.codelabs.mdc.java.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter;
+import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.activity.SettingsActivity;
+import com.mobbile.paul.shrine.adapters.SideMenuAdapter;
+import com.mobbile.paul.shrine.formActivities.BannersRequestActivity;
+import com.mobbile.paul.shrine.formActivities.BrandingRequestActivity;
+import com.mobbile.paul.shrine.formActivities.CampaignRequestActivity;
+import com.mobbile.paul.shrine.formActivities.IllustrationActivity;
+import com.mobbile.paul.shrine.formActivities.InfluencerRequestActivity;
+import com.mobbile.paul.shrine.formActivities.LogoRequestActivity;
+import com.mobbile.paul.shrine.formActivities.SocialMediaActivity;
+import com.mobbile.paul.shrine.formActivities.StationaryActivity;
+import com.mobbile.paul.shrine.formActivities.StoryboardRequestActivity;
+import com.mobbile.paul.shrine.listeners.onFragmentActivatedListener;
+import com.mobbile.paul.shrine.network.ProductEntry;
+import com.mobbile.paul.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter;
 
 public class ProductGridFragment extends Fragment implements StaggeredProductCardRecyclerViewAdapter.onProductClickedListener, NavigationHost {
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.mobbile.paul.codelab.R;
 
 public class ProductCardViewHolder extends RecyclerView.ViewHolder {
 

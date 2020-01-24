@@ -4,9 +4,10 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
 
-import com.google.codelabs.mdc.java.shrine.R;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.mobbile.paul.codelab.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;

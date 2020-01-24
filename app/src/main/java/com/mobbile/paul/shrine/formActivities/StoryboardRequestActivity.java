@@ -28,11 +28,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.codelabs.mdc.java.shrine.R;
-import com.google.codelabs.mdc.java.shrine.activity.SuccessSubmitActivity;
-import com.google.codelabs.mdc.java.shrine.adapters.StoryboardRequestAdapter;
-import com.google.codelabs.mdc.java.shrine.helper.UploadHelper;
-import com.google.codelabs.mdc.java.shrine.models.OrderObject;
+import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
+import com.mobbile.paul.shrine.adapters.StoryboardRequestAdapter;
+import com.mobbile.paul.shrine.helper.UploadHelper;
+import com.mobbile.paul.shrine.models.OrderObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -47,9 +47,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-import static com.google.codelabs.mdc.java.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT;
-import static com.google.codelabs.mdc.java.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT_IN_DOLLAR;
-import static com.google.codelabs.mdc.java.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_ID;
+import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT;
+import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT_IN_DOLLAR;
+import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_ID;
 
 public class StoryboardRequestActivity extends AppCompatActivity {
 

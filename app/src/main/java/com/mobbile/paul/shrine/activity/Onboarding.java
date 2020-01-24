@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.CardItem;
 import com.mobbile.paul.shrine.helper.CardPagerAdapter;
 import com.mobbile.paul.shrine.helper.ShadowTransformer;
 

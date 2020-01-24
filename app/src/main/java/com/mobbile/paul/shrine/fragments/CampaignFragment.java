@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.codelabs.mdc.java.shrine.R;
-import com.google.codelabs.mdc.java.shrine.listeners.onFragmentActivatedListener;
-import com.google.codelabs.mdc.java.shrine.listeners.onSaveTappedListener;
-import com.google.codelabs.mdc.java.shrine.models.CampaignRequest;
+import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.listeners.onFragmentActivatedListener;
+import com.mobbile.paul.shrine.listeners.onSaveTappedListener;
+import com.mobbile.paul.shrine.models.CampaignRequest;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -5,6 +5,8 @@ import androidx.viewpager.widget.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mobbile.paul.codelab.R;
+
 
 public class LogoRequestAdapter extends PagerAdapter {
 

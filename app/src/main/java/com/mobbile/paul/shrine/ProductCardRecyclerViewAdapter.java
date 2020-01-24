@@ -6,8 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.codelabs.mdc.java.shrine.network.ImageRequester;
-import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
+import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.network.ImageRequester;
+import com.mobbile.paul.shrine.network.ProductEntry;
 
 import java.util.List;
 

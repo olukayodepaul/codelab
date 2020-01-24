@@ -27,7 +27,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.codelabs.mdc.java.shrine.R;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -35,10 +34,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import com.google.codelabs.mdc.java.shrine.helper.UploadHelper;
-import com.google.codelabs.mdc.java.shrine.listeners.onFragmentActivatedListener;
-import com.google.codelabs.mdc.java.shrine.listeners.onSaveTappedListener;
-import com.google.codelabs.mdc.java.shrine.models.FlyerRequest;
+import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.helper.UploadHelper;
+import com.mobbile.paul.shrine.listeners.onFragmentActivatedListener;
+import com.mobbile.paul.shrine.listeners.onSaveTappedListener;
+import com.mobbile.paul.shrine.models.FlyerRequest;
 
 import static android.app.Activity.RESULT_OK;
 

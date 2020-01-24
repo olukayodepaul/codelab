@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-import com.google.codelabs.mdc.java.shrine.R;
+
+import com.mobbile.paul.codelab.R;
 
 import top.defaults.colorpicker.ColorObserver;
 import top.defaults.colorpicker.ColorPickerView;

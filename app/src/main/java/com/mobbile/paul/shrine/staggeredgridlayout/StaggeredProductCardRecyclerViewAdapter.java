@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
-import com.google.codelabs.mdc.java.shrine.R;
-import com.google.codelabs.mdc.java.shrine.network.ImageRequester;
-import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
+import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.network.ImageRequester;
+import com.mobbile.paul.shrine.network.ProductEntry;
 
 import java.util.List;
 

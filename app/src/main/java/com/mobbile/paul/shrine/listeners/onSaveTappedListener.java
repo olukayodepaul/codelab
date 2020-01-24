@@ -1,13 +1,13 @@
 package com.mobbile.paul.shrine.listeners;
 
-import com.google.codelabs.mdc.java.shrine.models.BannerRequest;
-import com.google.codelabs.mdc.java.shrine.models.BrandingRequest;
-import com.google.codelabs.mdc.java.shrine.models.CampaignRequest;
-import com.google.codelabs.mdc.java.shrine.models.FlyerRequest;
-import com.google.codelabs.mdc.java.shrine.models.IllustrationRequest;
-import com.google.codelabs.mdc.java.shrine.models.InfluencerRequest;
-import com.google.codelabs.mdc.java.shrine.models.LogoRequest;
-import com.google.codelabs.mdc.java.shrine.models.SocialMediaRequest;
+import com.mobbile.paul.shrine.models.BannerRequest;
+import com.mobbile.paul.shrine.models.BrandingRequest;
+import com.mobbile.paul.shrine.models.CampaignRequest;
+import com.mobbile.paul.shrine.models.FlyerRequest;
+import com.mobbile.paul.shrine.models.IllustrationRequest;
+import com.mobbile.paul.shrine.models.InfluencerRequest;
+import com.mobbile.paul.shrine.models.LogoRequest;
+import com.mobbile.paul.shrine.models.SocialMediaRequest;
 
 public interface onSaveTappedListener {
 

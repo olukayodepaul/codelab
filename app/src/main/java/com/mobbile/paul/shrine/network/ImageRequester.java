@@ -9,7 +9,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
-import com.google.codelabs.mdc.java.shrine.application.ShrineApplication;
+import com.mobbile.paul.shrine.application.ShrineApplication;
 
 /**
  * Class that handles image requests using Volley.

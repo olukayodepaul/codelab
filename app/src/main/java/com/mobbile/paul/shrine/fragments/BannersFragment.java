@@ -28,11 +28,12 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.codelabs.mdc.java.shrine.R;
-import com.google.codelabs.mdc.java.shrine.helper.UploadHelper;
-import com.google.codelabs.mdc.java.shrine.listeners.onFragmentActivatedListener;
-import com.google.codelabs.mdc.java.shrine.listeners.onSaveTappedListener;
-import com.google.codelabs.mdc.java.shrine.models.BannerRequest;
+
+import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.helper.UploadHelper;
+import com.mobbile.paul.shrine.listeners.onFragmentActivatedListener;
+import com.mobbile.paul.shrine.listeners.onSaveTappedListener;
+import com.mobbile.paul.shrine.models.BannerRequest;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;

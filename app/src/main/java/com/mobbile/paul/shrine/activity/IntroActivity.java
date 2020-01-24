@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mobbile.paul.codelab.R;
+import com.mobbile.paul.shrine.MainActivity;
 
 public class IntroActivity extends AppCompatActivity {
 
