@@ -59,18 +59,14 @@ public class LogoRequestFragment extends Fragment {
         onFragmentActivatedListener.onFragmentEntered();
 
         if (getActivity() != null) {
-            (getActivity()).findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            (getActivity()).findViewById(R.id.fab).setOnClickListener(v -> {
 
+                LogoRequest logoRequest = new LogoRequest();
+                logoRequest.setBrandName(brandNameEditText.getText().toString());
+                logoRequest.setBrandInspiration(brandInspirationEditText.getText().toString());
+                logoRequest.setBrandColor(brandColorEditText.getText().toString());
+                onSaveTappedListener.onLogoRequestd(logoRequest);
 
-                    LogoRequest logoRequest = new LogoRequest();
-                    logoRequest.setBrandName(brandNameEditText.getText().toString());
-                    logoRequest.setBrandInspiration(brandInspirationEditText.getText().toString());
-                    logoRequest.setBrandColor(brandColorEditText.getText().toString());
-                    onSaveTappedListener.onLogoRequestd(logoRequest);
-
-                }
             });
         }
         return view;

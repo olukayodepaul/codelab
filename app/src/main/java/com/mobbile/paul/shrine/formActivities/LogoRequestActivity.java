@@ -24,6 +24,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.InputMethodManager;
@@ -34,6 +35,7 @@ import android.widget.TextView;
 
 import com.mobbile.paul.codelab.R;
 import com.mobbile.paul.shrine.LogoRequestAdapter;
+import com.mobbile.paul.shrine.activity.PayPal;
 import com.mobbile.paul.shrine.activity.PaymentActivity;
 import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
 import com.mobbile.paul.shrine.fragments.ColorPickerDialog;
@@ -73,11 +75,13 @@ public class LogoRequestActivity extends AppCompatActivity {
 
         LogoRequestAdapter logoRequestAdapter = new LogoRequestAdapter();
         pager = findViewById(R.id.pager);
+
         pager.setOffscreenPageLimit(3);
         pager.setAdapter(logoRequestAdapter);
         progressBar = findViewById(R.id.progress_total);
         progressBar.setMax(3);
         progressBar.setProgress(1);
+
         brandNameEditText = findViewById(R.id.brandNameEditText);
         inspiration_1 = findViewById(R.id.inspiration_1);
         inspiration_2 = findViewById(R.id.inspiration_2);
@@ -95,6 +99,9 @@ public class LogoRequestActivity extends AppCompatActivity {
 
         colour_3_button = findViewById(R.id.colour_3);
 
+        Log.d("LogoRequestActivity_ty","LogoRequestActivity_ty");
+
+
         setColorPickers();
 //        brandNameEditText.requestFocus();
         nextFab = findViewById(R.id.fab);
@@ -102,6 +109,7 @@ public class LogoRequestActivity extends AppCompatActivity {
 //        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
 //        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
             @Override
             public void onPageScrolled(int i, float v, int i1) {
 
@@ -117,7 +125,9 @@ public class LogoRequestActivity extends AppCompatActivity {
 
                 if (i == (Objects.requireNonNull(pager.getAdapter()).getCount() - 1)) {
 
+                    //hide the test here
                     nextFab.setText(R.string.submit_request_string);
+
                     Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_check_black_24dp);
                     nextFab.setIcon(myFabSrc);
                     nextFab.extend();
@@ -125,95 +135,57 @@ public class LogoRequestActivity extends AppCompatActivity {
                     if (imm != null && getCurrentFocus() != null){
                         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                     }
-                    nextFab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            requestLogo();
-                        }
-                    });
+                    nextFab.setOnClickListener(v -> requestLogo());
                 } else {
                     nextFab.setText(R.string.next);
                     Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_chevron_right);
                     nextFab.setIcon(myFabSrc);
                     nextFab.shrink();
-                    nextFab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (pager != null)
-                                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
-                        }
+                    nextFab.setOnClickListener(v -> {
+                        if (pager != null)
+                            pager.setCurrentItem(pager.getCurrentItem() + 1, true);
                     });
                 }
             }
 
             @Override
             public void onPageScrollStateChanged(int i) {
-
             }
         });
 
-        nextFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (pager != null)
-                    pager.setCurrentItem(pager.getCurrentItem() + 1, true);
-            }
+        nextFab.setOnClickListener(v -> {
+            if (pager != null)
+                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
         });
-
-
     }
 
+    //this is for color picker
     private void setColorPickers() {
-        colour_1_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-
-                ColorPickerDialog dialog =  ColorPickerDialog.newInstance(Color.BLUE);
-
-                dialog.addOnColorSelectedCallback(new ColorPickerDialog.OnColorSelectedCallback() {
-                    @Override
-                    public void onColorSelected(int color) {
-                        v.setBackgroundColor(color);
-                        colour_1 = String.format("#%06X", 0xFFFFFF & color);
-                    }
-                });
-                dialog.show(getSupportFragmentManager(), "Color Wheel 1");
-
-            }
+        colour_1_button.setOnClickListener(v -> {
+            ColorPickerDialog dialog =  ColorPickerDialog.newInstance(Color.BLUE);
+            dialog.addOnColorSelectedCallback(color -> {
+                v.setBackgroundColor(color);
+                colour_1 = String.format("#%06X", 0xFFFFFF & color);
+            });
+            dialog.show(getSupportFragmentManager(), "Color Wheel 1");
         });
 
-        colour_2_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                ColorPickerDialog dialog =  ColorPickerDialog.newInstance(Color.YELLOW);
-
-                dialog.addOnColorSelectedCallback(new ColorPickerDialog.OnColorSelectedCallback() {
-                    @Override
-                    public void onColorSelected(int color) {
-                        v.setBackgroundColor(color);
-                        colour_2 = String.format("#%06X", 0xFFFFFF & color);
-                    }
-                });
-                dialog.show(getSupportFragmentManager(), "Color Wheel 2");
-
-            }
+        colour_2_button.setOnClickListener(v -> {
+            ColorPickerDialog dialog =  ColorPickerDialog.newInstance(Color.YELLOW);
+            dialog.addOnColorSelectedCallback(color -> {
+                v.setBackgroundColor(color);
+                colour_2 = String.format("#%06X", 0xFFFFFF & color);
+            });
+            dialog.show(getSupportFragmentManager(), "Color Wheel 2");
         });
-        colour_3_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                ColorPickerDialog dialog =  ColorPickerDialog.newInstance(Color.GREEN);
 
-                dialog.addOnColorSelectedCallback(new ColorPickerDialog.OnColorSelectedCallback() {
-                    @Override
-                    public void onColorSelected(int color) {
-                        v.setBackgroundColor(color);
-                        colour_3 = String.format("#%06X", 0xFFFFFF & color);
-                    }
-                });
-                dialog.show(getSupportFragmentManager(), "Color Wheel 3");
-
-            }
+        colour_3_button.setOnClickListener(v -> {
+            ColorPickerDialog dialog =  ColorPickerDialog.newInstance(Color.GREEN);
+            dialog.addOnColorSelectedCallback(color -> {
+                v.setBackgroundColor(color);
+                colour_3 = String.format("#%06X", 0xFFFFFF & color);
+            });
+            dialog.show(getSupportFragmentManager(), "Color Wheel 3");
         });
 
     }
@@ -229,15 +201,12 @@ public class LogoRequestActivity extends AppCompatActivity {
                 if (next != null) {
                     next.requestFocus();
                 }
-
 //                doSearch(); // Or whatever
             }
         }
 
-        public void beforeTextChanged(CharSequence s, int start,
-                                      int count, int after) {
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             // TODO Auto-generated method stub
-
         }
 
         public void afterTextChanged(Editable s) {
@@ -248,6 +217,7 @@ public class LogoRequestActivity extends AppCompatActivity {
 
 
     private void requestLogo() {
+
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Snackbar.make(nextFab, R.string.not_logged_in_message, Snackbar.LENGTH_LONG).show();
             return;
@@ -261,33 +231,24 @@ public class LogoRequestActivity extends AppCompatActivity {
         Map<String, Object> data = new HashMap<>();
         data.put("BrandName", Objects.requireNonNull(brandNameEditText.getText()).toString());
         data.put("BrandColors", String.format("%s,%s,%s", colour_1, colour_2, colour_3));
-        data.put("BrandInspiration", String.format("%s,%s,%s,%s,%s", inspiration_1.getText(), inspiration_2.getText(), inspiration_3.getText(), inspiration_4.getText(), inspiration_5.getText()));
-
+        data.put("BrandInspiration", String.format("%s,%s,%s,%s,%s", inspiration_1.getText(),
+                inspiration_2.getText(), inspiration_3.getText(),
+                inspiration_4.getText(), inspiration_5.getText()));
 
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "LOGO");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                setLoading(false);
-
-                displaySuccessRequest(uniqueID);
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> { setLoading(false);displaySuccessRequest(uniqueID);
 
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                setLoading(false);
-
-                Snackbar.make(nextFab, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        }).addOnFailureListener(e -> {
+            setLoading(false);
+            Snackbar.make(nextFab, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
     }
 
 
     private void displaySuccessRequest(String uniqueId) {
+
         Intent intent = new Intent(this, SuccessSubmitActivity.class);
         intent.putExtra(ARGS_ORDER_ID, uniqueId);
         intent.putExtra(ARGS_ORDER_AMOUNT, 36000);
@@ -307,6 +268,11 @@ public class LogoRequestActivity extends AppCompatActivity {
         TransitionManager.beginDelayedTransition(loadingButtonLayout, transition);
         loading_progress.setVisibility(isLoading ? View.VISIBLE : View.GONE);
         nextFab.setVisibility(isLoading ? View.INVISIBLE : View.VISIBLE);
+    }
+
+    private void addPayPalIntent() {
+        Intent intent = new Intent(this, PayPal.class);
+        startActivity(intent);
     }
 
     /**

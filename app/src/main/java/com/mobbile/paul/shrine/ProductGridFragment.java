@@ -161,7 +161,6 @@ public class ProductGridFragment extends Fragment implements StaggeredProductCar
                 break;
             case 1:
                 intent = new Intent(getContext(), SocialMediaActivity.class);
-
                 ActivityCompat.startActivity(getContext(), intent, options.toBundle());
                 break;
             case 2:
@@ -228,10 +227,8 @@ public class ProductGridFragment extends Fragment implements StaggeredProductCar
             if (addToBackstack) {
                 transaction.addToBackStack(null);
             }
-
             transaction.commit();
         }
-
     }
 
 //    @Override

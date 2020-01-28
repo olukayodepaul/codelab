@@ -1,6 +1,7 @@
 package com.mobbile.paul.shrine.activity;
 
 import android.content.Intent;
+import android.util.Log;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.mobbile.paul.codelab.R;
@@ -55,8 +56,10 @@ public class SplashScreenActivity extends AwesomeSplash {
     public void animationsFinished() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+            Log.d("SplashScreenActivity","HERERERERERER");
             startActivity(new Intent(this, MainActivity.class));
         } else {
+            Log.d("SplashScreenActivity","HERERERERERER");
             startActivity(new Intent(this, Onboarding.class));
         }
 

@@ -94,26 +94,28 @@ public class SuccessSubmitActivity extends AppCompatActivity {
         }
 
 
-        findViewById(R.id.paymentButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SuccessSubmitActivity.this, PaymentActivity.class);
-                intent.putExtra(ARGS_ORDER_ID, orderId);
-                intent.putExtra(ARGS_ORDER_AMOUNT, amount);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
-            }
+        findViewById(R.id.paymentButton).setOnClickListener(v -> {
+            Intent intent = new Intent(SuccessSubmitActivity.this, PaymentActivity.class);
+            intent.putExtra(ARGS_ORDER_ID, orderId);
+            intent.putExtra(ARGS_ORDER_AMOUNT, amount);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         });
 
-        completeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SuccessSubmitActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
-            }
+        findViewById(R.id.paypalPaymentButton).setOnClickListener(v -> {
+            Intent intent = new Intent(SuccessSubmitActivity.this, PayPal.class);
+            intent.putExtra(ARGS_ORDER_ID, orderId);
+            intent.putExtra(ARGS_ORDER_AMOUNT, amount);
+            startActivity(intent);
+            finish();
+        });
+
+        completeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(SuccessSubmitActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         });
 
     }

@@ -84,13 +84,18 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
         mTitles = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.menuOptions)));
         Toolbar toolbar = findViewById(R.id.app_bar);
-        DuoDrawerLayout drawerLayout = findViewById(R.id.drawer);
+        setSupportActionBar(toolbar);
+
+        //add the menuu bar to the tool bar here......
+
+
+        //disable the drawer here......
+        /*DuoDrawerLayout drawerLayout = findViewById(R.id.drawer);
         DuoDrawerToggle drawerToggle = new DuoDrawerToggle(this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
-
         drawerLayout.setDrawerListener(drawerToggle);
-        drawerToggle.syncState();
+        drawerToggle.syncState();*/
 
 
         ordersCollection = FirebaseFirestore.getInstance().collection("orders");
@@ -99,24 +104,18 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
         floatingActionButton = findViewById(R.id.fab);
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        floatingActionButton.setOnClickListener(v -> {
 
 //                floatingActionButton.hide(visibilityChangedListener);
-                invalidateOptionsMenu();
+            invalidateOptionsMenu();
 //                navigateTo(new LogoRequestFragment(), true);
 
-                if (currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
-                    bottomAppBar.setFabAlignmentMode(currentFabAlignmentMode);
-                    bottomAppBar.setNavigationIcon(R.drawable.ic_arrow_drop_up_black_24dp);
-                    bottomAppBar.replaceMenu(R.menu.bottomappbar_menu_primary);
-                    floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
-
-                    navigateTo(new LogoRequestFragment(), true);
-
-                }
-
+            if (currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
+                bottomAppBar.setFabAlignmentMode(currentFabAlignmentMode);
+                bottomAppBar.setNavigationIcon(R.drawable.ic_arrow_drop_up_black_24dp);
+                bottomAppBar.replaceMenu(R.menu.bottomappbar_menu_primary);
+                floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
+                navigateTo(new LogoRequestFragment(), true);
             }
         });
 
@@ -129,34 +128,26 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         }
 
 
-        bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the navigation click by showing a BottomDrawer etc.
-                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomNavigationDrawerFragment();
-                bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
-            }
+        bottomAppBar.setNavigationOnClickListener(v -> {
+            // Handle the navigation click by showing a BottomDrawer etc.
+            BottomSheetDialogFragment bottomSheetDialogFragment = new BottomNavigationDrawerFragment();
+            bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
         });
 
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.app_bar_back:
-                        onBackPressed();
-                        return true;
-                    case R.id.app_bar_clear:
-                        clearForm((ViewGroup) findViewById(R.id.product_grid));
-                        return true;
-                    default:
-                        return false;
-
-                }
+        bottomAppBar.setOnMenuItemClickListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.app_bar_back:
+                    onBackPressed();
+                    return true;
+                case R.id.app_bar_clear:
+                    clearForm((ViewGroup) findViewById(R.id.product_grid));
+                    return true;
+                default:
+                    return false;
             }
         });
 
         mViewHolder = new ViewHolder();
-
 
         mMenuAdapter = new SideMenuAdapter(mTitles);
 
@@ -167,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
 
     FloatingActionButton.OnVisibilityChangedListener visibilityChangedListener = new FloatingActionButton.OnVisibilityChangedListener() {
+
         @Override
         public void onShown(FloatingActionButton fab) {
             super.onShown(fab);
@@ -192,23 +184,18 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             bottomAppBar.replaceMenu((currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) ? R.menu.bottomappbar_menu_primary : R.menu.bottomappbar_menu_secondary);
             fab.setImageDrawable((currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) ? getResources().getDrawable(R.drawable.ic_add_black_24dp) : getResources().getDrawable(R.drawable.ic_save_black_24dp));
 
-
             fab.show();
-
         }
     };
 
 
     private void toggleFabAlignment() {
-
         if (currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
             currentFabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END;
         } else {
             currentFabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER;
         }
-
         bottomAppBar.setFabAlignmentMode(currentFabAlignmentMode);
-
     }
 
 
@@ -234,10 +221,11 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
+    //clicking the menu items here... This is the fragment for home.....
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -245,9 +233,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
                 BottomSheetDialogFragment bottomSheetDialogFragment = new BottomNavigationDrawerFragment();
                 bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                 break;
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -260,7 +246,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             bottomAppBar.setNavigationIcon(null);
             bottomAppBar.replaceMenu(R.menu.bottomappbar_menu_secondary);
             floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_save_black_24dp));
-
         }
     }
 
@@ -273,20 +258,16 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         bottomAppBar.setNavigationIcon(R.drawable.ic_arrow_drop_up_black_24dp);
         bottomAppBar.replaceMenu(R.menu.bottomappbar_menu_primary);
         floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
-
     }
 
     @Override
     public void onFragmentDefaultNavigate() {
-
         navigateTo(new InfluencerBookingFragment(), true);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
     @Override
@@ -309,43 +290,30 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             data.put("fonts", request.getFonts());
             data.put("colors", request.getColors());
             data.put("dimension", request.getDimension());
-
         }
 
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Flyer");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
 
-                floatingActionButton.setEnabled(true);
+            floatingActionButton.setEnabled(true);
 
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
 
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
-
     }
 
     @Override
     public void onBannerRequested(BannerRequest request, int type) {
-
-
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Snackbar.make(floatingActionButton, R.string.not_logged_in_message, Snackbar.LENGTH_LONG).show();
             return;
         }
-
 
         floatingActionButton.setEnabled(false);
 
@@ -362,31 +330,18 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         }
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Banner");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
-
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
-
     }
 
     @Override
     public void onBrandingRequested(BrandingRequest request, int type) {
-
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Snackbar.make(floatingActionButton, R.string.not_logged_in_message, Snackbar.LENGTH_LONG).show();
@@ -394,7 +349,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         }
 
         floatingActionButton.setEnabled(false);
-
         String uniqueID = UUID.randomUUID().toString();
         Map<String, Object> data = new HashMap<>();
         data.put("content", request.getContent());
@@ -407,44 +361,29 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             data.put("dimension", request.getDimension());
             data.put("amountOfCopies", request.getAmountOfCopies());
             data.put("deliveryInformation", request.getDeliveryInformation());
-
-
         }
 
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Branding/Merchandising");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
-
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
-
     }
 
     @Override
     public void onCampaignRequested(CampaignRequest request) {
 
-
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Snackbar.make(floatingActionButton, R.string.not_logged_in_message, Snackbar.LENGTH_LONG).show();
             return;
         }
-        floatingActionButton.setEnabled(false);
 
+        floatingActionButton.setEnabled(false);
         String uniqueID = UUID.randomUUID().toString();
         Map<String, Object> data = new HashMap<>();
         data.put("background", request.getBackground());
@@ -456,30 +395,16 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         data.put("budget", request.getBudget());
         data.put("timings", request.getTimings());
         data.put("deliverable", request.getDeliverable());
-
-
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Campaign");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
-
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
-
     }
 
     @Override
@@ -489,45 +414,29 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             Snackbar.make(floatingActionButton, R.string.not_logged_in_message, Snackbar.LENGTH_LONG).show();
             return;
         }
-
         floatingActionButton.setEnabled(false);
-
         String uniqueID = UUID.randomUUID().toString();
         Map<String, Object> data = new HashMap<>();
         data.put("content", request.getContent());
 
         if (request.getIsHaveCharacter()) {
             data.put("characterImage", request.getCharacterImage());
-
         }
 
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Illustration");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
-
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
-
     }
 
     @Override
     public void onInfluencerRequested(InfluencerRequest request) {
-
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Snackbar.make(floatingActionButton, R.string.not_logged_in_message, Snackbar.LENGTH_LONG).show();
@@ -535,7 +444,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         }
 
         floatingActionButton.setEnabled(false);
-
         String uniqueID = UUID.randomUUID().toString();
         Map<String, Object> data = new HashMap<>();
         data.put("influencer", request.getInfluencer());
@@ -543,27 +451,14 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         data.put("mode", request.getMode());
 
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Influencer");
-
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
-
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
-
     }
 
     @Override
@@ -575,36 +470,25 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         }
 
         floatingActionButton.setEnabled(false);
-
         String uniqueID = UUID.randomUUID().toString();
         Map<String, Object> data = new HashMap<>();
         data.put("brandName", request.getBrandName());
         data.put("brandColors", request.getBrandColor());
         data.put("brandInspiration", request.getBrandInspiration());
 
-
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Logo");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
 
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
 
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
-
     }
 
     @Override
@@ -626,24 +510,16 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Social Media Management");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
 
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
 
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
     }
 
@@ -663,27 +539,16 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
         OrderObject orderObject = new OrderObject(uniqueID, FirebaseAuth.getInstance().getCurrentUser().getUid(), "REQUEST", data, "Story Board");
 
-        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                floatingActionButton.setEnabled(true);
+        ordersCollection.document(uniqueID).set(orderObject).addOnSuccessListener(aVoid -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
+            clearForm((ViewGroup) findViewById(R.id.product_grid));
 
-                Snackbar.make(floatingActionButton, R.string.success_request, Snackbar.LENGTH_LONG).show();
-
-                clearForm((ViewGroup) findViewById(R.id.product_grid));
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                floatingActionButton.setEnabled(true);
-
-                Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
-            }
+        }).addOnFailureListener(e -> {
+            floatingActionButton.setEnabled(true);
+            Snackbar.make(floatingActionButton, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
         });
     }
-
 
     private void clearForm(ViewGroup group) {
         for (int i = 0, count = group.getChildCount(); i < count; ++i) {
@@ -691,12 +556,12 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             if (view instanceof TextInputEditText) {
                 ((TextInputEditText) view).setText("");
             }
-
             if (view instanceof ViewGroup && (((ViewGroup) view).getChildCount() > 0))
                 clearForm((ViewGroup) view);
         }
     }
 
+    //this is the nav drawer.. change
     private class ViewHolder {
         private DuoDrawerLayout mDuoDrawerLayout;
         private DuoMenuView mDuoMenuView;
@@ -710,21 +575,13 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
     }
 
     @Override
-    public void onFooterClicked() {
-
-    }
+    public void onFooterClicked() {}
 
     @Override
-    public void onHeaderClicked() {
-
-    }
+    public void onHeaderClicked() {}
 
     @Override
     public void onOptionClicked(int position, Object objectClicked) {
-        // Set the toolbar title
-//        setTitle(mTitles.get(position));
-
-        // Set the right options selected
         mMenuAdapter.setViewSelected(position, true);
 
         // Navigate to the right fragment
@@ -769,21 +626,18 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
                 break;
             case 3:
 //                String url = "https://paystack.com/pay/flgt9cgm8h";
-                String url = "https://paystack.com/pay/-g8vlp4197";
+               /* String url = "https://paystack.com/pay/-g8vlp4197";
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                 CustomTabsIntent customTabsIntent = builder.build();
-                customTabsIntent.launchUrl(this, Uri.parse(url));
+                customTabsIntent.launchUrl(this, Uri.parse(url));*/
                 break;
             default:
                 goToFragment(new ProductGridFragment(), false);
                 mViewHolder.mDuoDrawerLayout.closeDrawer();
-
                 break;
         }
-
         // Close the drawer
     }
-
 
     private void goToFragment(Fragment fragment, boolean addToBackStack) {
         FragmentTransaction transaction = null;
@@ -792,10 +646,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             if (addToBackStack) {
                 transaction.addToBackStack(null);
             }
-
             transaction.add(R.id.container, fragment).commit();
         }
-
-
     }
 }

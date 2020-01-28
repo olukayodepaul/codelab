@@ -75,22 +75,16 @@ public class SettingsActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Exception exception) {
 //                        Log.i("Logout","Failed");
-
                     }
                 });
                 startActivity(new Intent(SettingsActivity.this, SplashScreenActivity.class));
             }
         });
-
-
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-
     }
 
     private void beginEnterTransition() {

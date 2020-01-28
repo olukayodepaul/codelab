@@ -142,4 +142,12 @@
         <item>Support</item>
         <item>Subscriptions</item>
     </array>
+
+    <!--this is paul addition. add the menu and remove the navdrawer from the main activity -->
+    <string name="_home">Home</string>
+    <string name="_settings">Settings</string>
+    <string name="_support">Supports</string>
+    <string name="_subscription">Subscription</string>
+
+
 </resources>

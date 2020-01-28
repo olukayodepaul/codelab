@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/v_home"
+        android:orderInCategory="100"
+        android:title="@string/_home"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/v_settings"
+        android:orderInCategory="100"
+        android:title="@string/_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/v_support"
+        android:orderInCategory="100"
+        android:title="@string/_support"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/v_subscription"
+        android:orderInCategory="100"
+        android:title="@string/_subscription"
+        app:showAsAction="never" />
+
+</menu>

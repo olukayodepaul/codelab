@@ -1,14 +1,15 @@
-
 package com.mobbile.paul.shrine.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import com.mobbile.paul.codelab.R;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
@@ -16,53 +17,63 @@ import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import java.math.BigDecimal;
 
+import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT;
+
 
 public class PayPal extends AppCompatActivity {
 
     private PayPalConfiguration payPalConfiguration;
     private Double amountCharged = 0.0;
+    private Double rate = 0.0;
+    private Double amount = 0.0;
     private Button paymentButton;
     private Integer requestCode  = 101;
+    private TextView edit_card_number;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_pal);
+        paymentButton = findViewById(R.id.payment);
+        edit_card_number = findViewById(R.id.edit_card_number);
+
+        rate = 360.0;
+        amountCharged = (double) getIntent().getIntExtra(ARGS_ORDER_AMOUNT, 0);
+
+        edit_card_number.setText("$"+ Double.toString(amountCharged * rate));
 
         setUpPayPal();
-        initView();
-        viewListeners();
 
-    }
-
-    private void initView() {
-        paymentButton = findViewById(R.id.payment);
-    }
-
-    private void viewListeners() {
-        paymentButton.setOnClickListener(v -> processPayment());
+        paymentButton.setOnClickListener(v ->
+            stitchToPayPal()
+        );
     }
 
     private void setUpPayPal() {
+
         String clientID = "ASDxc9rZ5c_ZjO-xjJUntoYdTIGa0Y86wr-3pf4ewaTjnCxLGmTThWMKsfK0NYIXODcbiLvcMMN0UOOQ"; //
         payPalConfiguration = new PayPalConfiguration()
                 .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
                 .clientId(clientID);
 
         Intent intent = new Intent(this, PayPalService.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,payPalConfiguration);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         startService(intent);
+
     }
 
-    private void processPayment() {
-        amountCharged = 20.00; //PLACE HOLDER
+    private void stitchToPayPal() {
+
+        amount = rate*amountCharged; //PLACE HOLDER
         String currency = "USD"; //PLACE HOLDER
-        PayPalPayment payPalPayment = new PayPalPayment(new BigDecimal(amountCharged), currency, "Ace Digital", PayPalPayment.PAYMENT_INTENT_SALE);
-        Intent intent = new Intent(this, PaymentActivity.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,payPalConfiguration);
-        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payPalPayment);
-        startActivityForResult(intent,requestCode);
+        PayPalPayment payPalPayment = new PayPalPayment(new BigDecimal(amount), currency, "Ace Digital", PayPalPayment.PAYMENT_INTENT_SALE);
+        Intent inten = new Intent(this, PaymentActivity.class);
+        inten.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,payPalConfiguration);
+        inten.putExtra(PaymentActivity.EXTRA_PAYMENT, payPalPayment);
+        startActivityForResult(inten,requestCode);
+
     }
 
     @Override

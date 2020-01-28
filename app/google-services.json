@@ -1,34 +1,71 @@
 {
   "project_info": {
-    "project_number": "278207180147",
-    "firebase_url": "https://acedigital-b7caf.firebaseio.com",
-    "project_id": "acedigital-b7caf",
-    "storage_bucket": "acedigital-b7caf.appspot.com"
+    "project_number": "316628222854",
+    "firebase_url": "https://acedigital-499f6.firebaseio.com",
+    "project_id": "acedigital-499f6",
+    "storage_bucket": "acedigital-499f6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:278207180147:android:deae843bdaeb146fffa906",
+        "mobilesdk_app_id": "1:316628222854:android:2e07c55f34f64d85",
         "android_client_info": {
-          "package_name": "com.mobbile.paul.codelab"
+          "package_name": "com.acecreative.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "278207180147-jhk6deebajqv8lgktpind8oe48pt555g.apps.googleusercontent.com",
+          "client_id": "316628222854-b8k1s5nld0b92p6g3qae6gp42b686u71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.acecreative.app",
+            "certificate_hash": "2de0466c5f94fb169c13c26407c415ef5a4b4284"
+          }
+        },
+        {
+          "client_id": "316628222854-ghnqhvjdfga5nue5hf79cq3m7cj44d4j.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDexcZyHUtZ7-bOs8pXewHEivwHEW22tgY"
+          "current_key": "AIzaSyAE2V3csXLn1e20w2pH9pTeLqYzy-oTm0k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "278207180147-jhk6deebajqv8lgktpind8oe48pt555g.apps.googleusercontent.com",
+              "client_id": "316628222854-ghnqhvjdfga5nue5hf79cq3m7cj44d4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316628222854:android:1220d740700beb492fe207",
+        "android_client_info": {
+          "package_name": "com.mobbile.paul.codelab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316628222854-ghnqhvjdfga5nue5hf79cq3m7cj44d4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE2V3csXLn1e20w2pH9pTeLqYzy-oTm0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316628222854-ghnqhvjdfga5nue5hf79cq3m7cj44d4j.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
