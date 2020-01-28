@@ -54,7 +54,6 @@ tools:context="com.mobbile.paul.shrine.activity.PayPal">
                 tools:layout_editor_absoluteY="1dp"
                 tools:ignore="MissingConstraints" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
@@ -165,6 +164,7 @@ tools:context="com.mobbile.paul.shrine.activity.PayPal">
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:src="@drawable/paystack_payment_logos" />
+
     </LinearLayout>
 
 </ScrollView>

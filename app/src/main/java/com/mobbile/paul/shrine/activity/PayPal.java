@@ -16,6 +16,7 @@ import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT;
 
@@ -39,10 +40,13 @@ public class PayPal extends AppCompatActivity {
         paymentButton = findViewById(R.id.payment);
         edit_card_number = findViewById(R.id.edit_card_number);
 
-        rate = 360.0;
+        DecimalFormat f = new DecimalFormat("##.00");
+
+        rate = 360.0;//coming from fire base
         amountCharged = (double) getIntent().getIntExtra(ARGS_ORDER_AMOUNT, 0);
 
-        edit_card_number.setText("$"+ Double.toString(amountCharged * rate));
+        amount = amountCharged / rate;
+        edit_card_number.setText("$"+ f.format(amount));
 
         setUpPayPal();
 
@@ -61,19 +65,16 @@ public class PayPal extends AppCompatActivity {
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         startService(intent);
-
     }
 
     private void stitchToPayPal() {
 
-        amount = rate*amountCharged; //PLACE HOLDER
         String currency = "USD"; //PLACE HOLDER
         PayPalPayment payPalPayment = new PayPalPayment(new BigDecimal(amount), currency, "Ace Digital", PayPalPayment.PAYMENT_INTENT_SALE);
         Intent inten = new Intent(this, PaymentActivity.class);
         inten.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,payPalConfiguration);
         inten.putExtra(PaymentActivity.EXTRA_PAYMENT, payPalPayment);
         startActivityForResult(inten,requestCode);
-
     }
 
     @Override
