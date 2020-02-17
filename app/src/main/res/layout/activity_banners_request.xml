@@ -115,8 +115,11 @@
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_12sdp">
 
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/page_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
             <LinearLayout
-                android:id="@+id/page_one"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -126,7 +129,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16sdp"
-                    app:srcCompat="@drawable/ic_number01" />
+                    app:srcCompat="@drawable/ic_number02" />
 
 
                 <TextView
@@ -134,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_marginBottom="@dimen/_16sdp"
-                    android:text="Click Upload button to upload your banner."
+                    android:text="click button to upload script"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="#474243"
                     android:textStyle="bold" />
@@ -174,6 +177,116 @@
 
 
             </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/page_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:srcCompat="@drawable/ic_number01"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/inspiration_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:textStyle="bold"
+                    android:textColor="#474243"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:text="Which of the social media platforms do you want to create banner for"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:singleSelection="false"
+                    app:chipSpacing="@dimen/_8sdp">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/facebook_chip"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Facebook"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:chipBackgroundColor="@color/bg_chip_state_list"
+                        />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/twitter_chip"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="twitter"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:chipBackgroundColor="@color/bg_chip_state_list"
+                        />
+
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/instagram_chip"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Instagram"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:chipBackgroundColor="@color/bg_chip_state_list"                       />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
+                        android:id="@+id/linkedin_chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LinkedIn"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:chipBackgroundColor="@color/bg_chip_state_list"
+                        />
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/hint_view_page_2"
+                        android:layout_width="@dimen/_2sdp"
+                        android:layout_alignParentStart="true"
+                        android:background="#e3b2b8"
+                        android:layout_height="@dimen/_16sdp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toEndOf="@id/hint_view_page_2"
+                        android:textStyle="normal"
+                        android:textColor="#474243"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:text="It may be one, some or all. Please, select carefully"
+                        android:textAppearance="?attr/textAppearanceCaption" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
         </androidx.viewpager.widget.ViewPager>
     </LinearLayout>

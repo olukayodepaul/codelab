@@ -56,293 +56,328 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:background="#FEF7E5"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:orientation="vertical">
-    <ProgressBar
-        android:id="@+id/progress_total"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_3sdp"
-        android:visibility="gone"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:progressTint="@color/colorSuccess"
-        android:progressBackgroundTint="#5a5958"
-        android:indeterminate="false" />
-
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:visibility="gone"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/product_title"
+        android:background="#FEF7E5"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical">
+        <ProgressBar
+            android:id="@+id/progress_total"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:text="@string/influence_booking"
-            android:textStyle="bold"
-            android:textColor="@color/colorSuccess"
+            android:layout_height="@dimen/_3sdp"
+            android:visibility="gone"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:progressTint="@color/colorSuccess"
+            android:progressBackgroundTint="#5a5958"
+            android:indeterminate="false" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@string/influence_booking"
+                android:textStyle="bold"
+                android:textColor="@color/colorSuccess"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                />
+
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="match_parent"
+                android:layout_below="@id/product_title"
+                android:layout_height="wrap_content"
+                android:transitionName="@string/transition_subtitle"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textStyle="normal"
+                android:textColor="@color/colorSuccess"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:text="Some voices are louder and spread faster and farther. Let's get them speaking for you"
+                android:textAppearance="?attr/textAppearanceCaption" />
+        </RelativeLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_12sdp"
-            />
+            android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/product_description"
-            android:layout_width="match_parent"
-            android:layout_below="@id/product_title"
-            android:layout_height="wrap_content"
-            android:transitionName="@string/transition_subtitle"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:textStyle="normal"
-            android:textColor="@color/colorSuccess"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:text="Some voices are louder and spread faster and farther. Let's get them speaking for you"
-            android:textAppearance="?attr/textAppearanceCaption" />
-    </RelativeLayout>
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
-        android:layout_height="match_parent">
-
-
-
-        <LinearLayout
-            android:id="@+id/page_one"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                app:srcCompat="@drawable/ic_number01"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/product_question"
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/page_one"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:layout_marginBottom="@dimen/_16sdp"
-                android:text="What platform(s) would you like your influencers on?"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#474243"
-                android:textStyle="bold" />
+                android:layout_height="match_parent">
 
 
-            <com.google.android.material.chip.ChipGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                app:singleSelection="false"
-                app:chipSpacing="@dimen/_8sdp">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/facebook_chip"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="facebook"
-                    app:chipBackgroundColor="@android:color/transparent"
-
-                    />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/twitter_chip"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="twitter"
-                    app:chipBackgroundColor="@android:color/transparent"
-                    />
-
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:id="@+id/snapchat_chip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="snapchat"
-                    app:chipBackgroundColor="@android:color/transparent"
-
-                    />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/instagram_chip"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="instagram"
-                    app:chipBackgroundColor="@android:color/transparent"
-                    />
-            </com.google.android.material.chip.ChipGroup>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:id="@+id/hint_view_page_2"
-                    android:layout_width="@dimen/_2sdp"
-                    android:layout_alignParentStart="true"
-                    android:background="#ece1d6"
-                    android:layout_height="@dimen/_8sdp"/>
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_toEndOf="@id/hint_view_page_2"
-                    android:textStyle="normal"
-                    android:textColor="#474243"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:text="This helps us design our strategies for the best results"
-                    android:textAppearance="?attr/textAppearanceCaption" />
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/page_two"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                app:srcCompat="@drawable/ic_number02"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/product_question_2"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:srcCompat="@drawable/ic_number01"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/product_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:text="What platform(s) would you like your influencers on?"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#474243"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+
+                        app:singleSelection="false"
+                        app:chipSpacing="@dimen/_8sdp">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/facebook_chip"
+                            style="@style/Widget.MaterialComponents.Chip.Entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Facebook"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:chipBackgroundColor="@color/bg_chip_state_list"
+                            />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/twitter_chip"
+                            style="@style/Widget.MaterialComponents.Chip.Entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="twitter"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:chipBackgroundColor="@color/bg_chip_state_list"
+                            />
+
+
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/instagram_chip"
+                            style="@style/Widget.MaterialComponents.Chip.Entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Instagram"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:chipBackgroundColor="@color/bg_chip_state_list"                       />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Widget.MaterialComponents.Chip.Entry"
+                            android:id="@+id/linkedin_chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LinkedIn"
+                            android:checkable="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:chipBackgroundColor="@color/bg_chip_state_list"
+                            />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/hint_view_page_2"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_alignParentStart="true"
+                            android:background="#ece1d6"
+                            android:layout_height="@dimen/_8sdp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_toEndOf="@id/hint_view_page_2"
+                            android:textStyle="normal"
+                            android:textColor="#474243"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:text="This helps us design our strategies for the best results"
+                            android:textAppearance="?attr/textAppearanceCaption" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/page_two"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:textStyle="bold"
-                android:textColor="#474243"
-                android:layout_marginBottom="@dimen/_16sdp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:text="What social media influencers do you want speaking for your business? Remember to state their social media handles alongside"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/influencerEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textFilter|textMultiLine"
-                android:background="@android:color/white"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_18sdp" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:id="@+id/hint_view"
-                    android:layout_width="@dimen/_2sdp"
-                    android:layout_alignParentStart="true"
-                    android:background="#ece1d6"
-                    android:layout_height="@dimen/_24sdp"/>
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_toEndOf="@id/hint_view"
-                    android:textStyle="normal"
-                    android:textColor="#474243"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:text="In the case of multiple influencers, please seperate their identities with commas, for better identification"
-                    android:textAppearance="?attr/textAppearanceCaption" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
 
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/page_three"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                app:srcCompat="@drawable/ic_number03"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/product_question_3"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:srcCompat="@drawable/ic_number02"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/product_question_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:textStyle="bold"
+                        android:textColor="#474243"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:text="What social media influencers do you want speaking for your business? Remember to state their social media handles alongside"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/influencerEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textFilter|textMultiLine"
+                        android:background="@android:color/white"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/hint_view"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_alignParentStart="true"
+                            android:background="#ece1d6"
+                            android:layout_height="@dimen/_24sdp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_toEndOf="@id/hint_view"
+                            android:textStyle="normal"
+                            android:textColor="#474243"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:text="In the case of multiple influencers, please seperate their identities with commas, for better identification"
+                            android:textAppearance="?attr/textAppearanceCaption" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/page_three"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:textStyle="bold"
-                android:textColor="#474243"
-                android:layout_marginBottom="@dimen/_16sdp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:text="What social media content type do you wish to advertise?"/>
+                android:layout_height="match_parent">
 
-            <RadioGroup
-                android:id="@+id/contentTypeGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:visibility="visible"
-                tools:visibility="visible">
-
-                <RadioButton
-                    android:id="@+id/imagesRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Images" />
-
-                <RadioButton
-                    android:id="@+id/videosRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Videos" />
-
-                <RadioButton
-                    android:id="@+id/bothRadioButton"
-                    android:layout_width="wrap_content"
-                    android:checked="true"
-                    android:layout_height="wrap_content"
-                    android:text="Both Images &amp; Videos" />
-            </RadioGroup>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:visibility="invisible"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:id="@+id/hint_view_3"
-                    android:layout_width="@dimen/_2sdp"
-                    android:layout_alignParentStart="true"
-                    android:background="#ece1d6"
-                    android:layout_height="@dimen/_40sdp"/>
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_toEndOf="@id/hint_view_3"
-                    android:textStyle="normal"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:srcCompat="@drawable/ic_number03"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/product_question_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:textStyle="bold"
+                        android:textColor="#474243"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:text="What social media content type do you wish to advertise?"/>
 
-                    android:textColor="#474243"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:text="Ensure you select brand colours that you would like your logo to represent."
-                    android:textAppearance="?attr/textAppearanceCaption" />
-            </RelativeLayout>
-        </LinearLayout>
-    </androidx.viewpager.widget.ViewPager>
+                    <RadioGroup
+                        android:id="@+id/contentTypeGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        tools:visibility="visible">
+
+                        <RadioButton
+                            android:id="@+id/imagesRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Images" />
+
+                        <RadioButton
+                            android:id="@+id/videosRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Videos" />
+
+                        <RadioButton
+                            android:id="@+id/bothRadioButton"
+                            android:layout_width="wrap_content"
+                            android:checked="true"
+                            android:layout_height="wrap_content"
+                            android:text="Both Images &amp; Videos" />
+                    </RadioGroup>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:visibility="invisible"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/hint_view_3"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_alignParentStart="true"
+                            android:background="#ece1d6"
+                            android:layout_height="@dimen/_40sdp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_toEndOf="@id/hint_view_3"
+                            android:textStyle="normal"
+
+                            android:textColor="#474243"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:text="Ensure you select brand colours that you would like your logo to represent."
+                            android:textAppearance="?attr/textAppearanceCaption" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
 
-</LinearLayout>
+        </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/loadingButtonLayout"

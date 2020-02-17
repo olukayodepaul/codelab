@@ -17,8 +17,6 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 
 import com.mobbile.paul.codelab.R;
-import com.mobbile.paul.shrine.activity.SettingsActivity;
-import com.mobbile.paul.shrine.adapters.SideMenuAdapter;
 import com.mobbile.paul.shrine.formActivities.BannersRequestActivity;
 import com.mobbile.paul.shrine.formActivities.BrandingRequestActivity;
 import com.mobbile.paul.shrine.formActivities.CampaignRequestActivity;

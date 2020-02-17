@@ -62,9 +62,9 @@ public class InfluencerBookingFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
-                    mode = "images";
+                    mode = "Images";
                 else
-                    mode = "videos";
+                    mode = "Videos";
             }
         });
 
@@ -72,7 +72,7 @@ public class InfluencerBookingFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
-                    socialMedia = "facebook";
+                    socialMedia = "Facebook";
             }
         });
 
@@ -80,7 +80,7 @@ public class InfluencerBookingFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
-                    socialMedia = "twitter";
+                    socialMedia = "Twitter";
             }
         });
         snapchat_chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -95,7 +95,7 @@ public class InfluencerBookingFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
-                    socialMedia = "instagram";
+                    socialMedia = "Instagram";
             }
         });
 

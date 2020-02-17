@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -31,9 +30,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.mobbile.paul.codelab.R;
-import com.mobbile.paul.shrine.LogoRequestAdapter;
-import com.mobbile.paul.shrine.activity.PaymentActivity;
-import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
+import com.mobbile.paul.shrine.activity.SuccessInfluencer;
 import com.mobbile.paul.shrine.adapters.SocialMediaRequestAdapter;
 import com.mobbile.paul.shrine.models.OrderObject;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,10 +41,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
-
-import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT;
-import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT_IN_DOLLAR;
-import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_ID;
 
 public class SocialMediaActivity extends AppCompatActivity {
 
@@ -88,9 +81,11 @@ public class SocialMediaActivity extends AppCompatActivity {
 
         nextFab = findViewById(R.id.fab);
         nextFab.shrink();
+
         first  = findViewById(R.id.first);
         second  = findViewById(R.id.second);
         third  = findViewById(R.id.third);
+
         firstEngageRadio  = findViewById(R.id.firstEngageRadio);
         secondEngageRadio  = findViewById(R.id.secondEngageRadio);
         thirdEngageRadio  = findViewById(R.id.thirdEngageRadio);
@@ -111,145 +106,98 @@ public class SocialMediaActivity extends AppCompatActivity {
         instagram_chip = findViewById(R.id.instagram_chip);
         linkedin_chip = findViewById(R.id.linkedin_chip);
 
+        page_increase_button.setChecked(true);
 
-
-        facebook_chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    socialMedia += "facebook,";
-            }
+        facebook_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                socialMedia += "Facebook,";
         });
 
-        twitter_chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    socialMedia += "twitter,";
-            }
+        twitter_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                socialMedia += "Twitter,";
         });
 
 
-        instagram_chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    socialMedia += "instagram,";
-            }
+        instagram_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                socialMedia += "Instagram,";
         });
 
-        linkedin_chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    socialMedia += "linkedin,";
-            }
+        linkedin_chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                socialMedia += "Linkedin,";
         });
 
-        first.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string.build_up_to_1k_followers_in_3_months);
+        first.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string.build_up_to_1k_followers_in_3_months);
 
-            }
         });
-        second.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string.get_up_to_5k_followers_in_6_months);
+        second.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string.get_up_to_5k_followers_in_6_months);
 
-            }
         });
-        third.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string.get_over_20k_followers_in_1_year);
+        third.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string.get_over_20k_followers_in_1_year);
 
-            }
         });
 
-        firstEngageRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string._10_000_impressions_in_3_months);
+        firstEngageRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string._10_000_impressions_in_3_months);
 
-            }
         });
 
 
-        secondEngageRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string.over_25k_impressions_in_6_months);
+        secondEngageRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string.over_25k_impressions_in_6_months);
 
-            }
         });
 
 
-        thirdEngageRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string.over_50k_impressions_in_1_year);
+        thirdEngageRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string.over_50k_impressions_in_1_year);
 
-            }
         });
 
 
+        firstContentRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string.minimum);
 
-        firstContentRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string.minimum);
-
-            }
         });
 
 
+        secondContentRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string._14_content_per_week);
 
-        secondContentRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string._14_content_per_week);
-
-            }
         });
 
 
-        thirdContentRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string._56_per_month_and_6_animated);
+        thirdContentRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string._56_per_month_and_6_animated);
 
-            }
         });
 
 
-        fourContentRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string._25_interactive_tweet);
+        fourContentRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string._25_interactive_tweet);
 
-            }
         });
 
 
-        fiveContentRadio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    achievementGoal = getString(R.string._3_contents_per_week_12_content);
+        fiveContentRadio.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+                achievementGoal = getString(R.string._3_contents_per_week_12_content);
 
-            }
         });
 
         brandInfoEditText  = findViewById(R.id.brandInfoEditText);
@@ -260,57 +208,46 @@ public class SocialMediaActivity extends AppCompatActivity {
         pageIncreaseRadioGroup = findViewById(R.id.pageIncreaseRadioGroup);
 
 
-        pageIncreaseRadioGroup.setVisibility(View.GONE);
+        //pageIncreaseRadioGroup.setVisibility(View.GONE);
         pageEngagementRadioGroup.setVisibility(View.GONE);
         contentManagementRadioGroup.setVisibility(View.GONE);
 
-        page_increase_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        page_increase_button.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
-                if (isChecked){
-                    pageIncreaseRadioGroup.setVisibility(View.VISIBLE);
-                }
-                else {
-                    pageIncreaseRadioGroup.setVisibility(View.GONE);
-                }
+            if (isChecked){
+                pageIncreaseRadioGroup.setVisibility(View.VISIBLE);
             }
-        });
-        page_engagement_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if (isChecked){
-                    pageEngagementRadioGroup.setVisibility(View.VISIBLE);
-                }
-                else {
-                    pageEngagementRadioGroup.setVisibility(View.GONE);
-                }
+            else {
+                pageIncreaseRadioGroup.setVisibility(View.GONE);
             }
         });
 
-        content_management_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        page_engagement_button.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
-                if (isChecked){
-                    contentManagementRadioGroup.setVisibility(View.VISIBLE);
-                }
-                else{
-                    contentManagementRadioGroup.setVisibility(View.GONE);
-                }
+            if (isChecked){
+                pageEngagementRadioGroup.setVisibility(View.VISIBLE);
+            }
+            else {
+                pageEngagementRadioGroup.setVisibility(View.GONE);
             }
         });
 
-        all_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        content_management_button.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
-                if (isChecked){
-                    pageIncreaseRadioGroup.setVisibility(View.VISIBLE);
-                    pageEngagementRadioGroup.setVisibility(View.VISIBLE);
-                    contentManagementRadioGroup.setVisibility(View.VISIBLE);
-                }
+            if (isChecked){
+                contentManagementRadioGroup.setVisibility(View.VISIBLE);
+            }
+            else{
+                contentManagementRadioGroup.setVisibility(View.GONE);
+            }
+        });
+
+        all_button.setOnCheckedChangeListener((buttonView, isChecked) -> {
+
+            if (isChecked){
+                pageIncreaseRadioGroup.setVisibility(View.VISIBLE);
+                pageEngagementRadioGroup.setVisibility(View.VISIBLE);
+                contentManagementRadioGroup.setVisibility(View.VISIBLE);
             }
         });
 
@@ -340,24 +277,16 @@ public class SocialMediaActivity extends AppCompatActivity {
                     Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_check_black_24dp);
                     nextFab.setIcon(myFabSrc);
                     nextFab.extend();
-//
+                    nextFab.setOnClickListener(v -> requestSocialMedia());
 
-                    nextFab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            requestSocialMedia();                        }
-                    });
                 } else {
                     nextFab.setText(R.string.next);
                     Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_chevron_right);
                     nextFab.setIcon(myFabSrc);
                     nextFab.shrink();
-                    nextFab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if(pager != null)
-                                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
-                        }
+                    nextFab.setOnClickListener(v -> {
+                        if(pager != null)
+                            pager.setCurrentItem(pager.getCurrentItem() + 1, true);
                     });
                 }
             }
@@ -368,13 +297,10 @@ public class SocialMediaActivity extends AppCompatActivity {
             }
         });
 
-        nextFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        nextFab.setOnClickListener(v -> {
 
-                if(pager != null)
-                    pager.setCurrentItem(pager.getCurrentItem() + 1, true);
-            }
+            if(pager != null)
+                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
         });
 
 //        product_image = findViewById(R.id.product_image);
@@ -458,23 +384,16 @@ public class SocialMediaActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 setLoading(false);
-
                 Snackbar.make(nextFab, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-
             }
         });
     }
 
     private void displaySuccessRequest(String uniqueId) {
-        Intent intent = new Intent(this, SuccessSubmitActivity.class);
-        intent.putExtra(ARGS_ORDER_ID, uniqueId);
-        intent.putExtra(ARGS_ORDER_AMOUNT, 50000);
-        intent.putExtra(ARGS_ORDER_AMOUNT_IN_DOLLAR, 0);
-
+        Intent intent = new Intent(this, SuccessInfluencer.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
-
     }
 
 //beginEnterTransition

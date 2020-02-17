@@ -1,10 +1,8 @@
 package com.mobbile.paul.shrine;
 
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -13,7 +11,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 
-import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,10 +22,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.mobbile.paul.codelab.R;
 import com.mobbile.paul.shrine.activity.SettingsActivity;
+import com.mobbile.paul.shrine.activity.SplashScreenActivity;
+import com.mobbile.paul.shrine.activity.SuccessForSubSubmitActivity;
 import com.mobbile.paul.shrine.adapters.SideMenuAdapter;
 import com.mobbile.paul.shrine.fragments.BottomNavigationDrawerFragment;
 import com.mobbile.paul.shrine.fragments.InfluencerBookingFragment;
@@ -48,7 +45,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.mobbile.paul.shrine.adapters.SideMenuAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,11 +53,16 @@ import java.util.Map;
 import java.util.UUID;
 
 import io.kommunicate.KmConversationBuilder;
+import io.kommunicate.Kommunicate;
+import io.kommunicate.callbacks.KMLogoutHandler;
 import io.kommunicate.callbacks.KmCallback;
 import io.kommunicate.users.KMUser;
 import nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout;
 import nl.psdcompany.duonavigationdrawer.views.DuoMenuView;
-import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle;
+
+import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT;
+import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT_IN_DOLLAR;
+import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_ID;
 
 public class MainActivity extends AppCompatActivity implements NavigationHost, onFragmentActivatedListener, onSaveTappedListener, DuoMenuView.OnMenuClickListener {
 
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
     int currentFabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER;
 
     private SideMenuAdapter mMenuAdapter;
-    private ViewHolder mViewHolder;
+    //private ViewHolder mViewHolder;
     private ArrayList<String> mTitles = new ArrayList<>();
 
     CollectionReference ordersCollection;
@@ -147,12 +148,12 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
             }
         });
 
-        mViewHolder = new ViewHolder();
+        //mViewHolder = new ViewHolder();
 
-        mMenuAdapter = new SideMenuAdapter(mTitles);
+        //mMenuAdapter = new SideMenuAdapter(mTitles);
 
-        mViewHolder.mDuoMenuView.setOnMenuClickListener(this);
-        mViewHolder.mDuoMenuView.setAdapter(mMenuAdapter);
+        //mViewHolder.mDuoMenuView.setOnMenuClickListener(this);
+       // mViewHolder.mDuoMenuView.setAdapter(mMenuAdapter);
 //        mMenuAdapter.setViewSelected(0, true);
     }
 
@@ -168,10 +169,9 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         @Override
         public void onHidden(FloatingActionButton fab) {
             super.onHidden(fab);
-            toggleFabAlignment();
+            //toggleFabAlignment();
 
             bottomAppBar.setNavigationIcon(null);
-
             if (currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
                 bottomAppBar.setNavigationIcon(R.drawable.ic_arrow_drop_up_black_24dp);
                 navigateTo(new ProductGridFragment(), true);
@@ -183,11 +183,9 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
             bottomAppBar.replaceMenu((currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) ? R.menu.bottomappbar_menu_primary : R.menu.bottomappbar_menu_secondary);
             fab.setImageDrawable((currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) ? getResources().getDrawable(R.drawable.ic_add_black_24dp) : getResources().getDrawable(R.drawable.ic_save_black_24dp));
-
             fab.show();
         }
     };
-
 
     private void toggleFabAlignment() {
         if (currentFabAlignmentMode == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
@@ -197,7 +195,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         }
         bottomAppBar.setFabAlignmentMode(currentFabAlignmentMode);
     }
-
 
     /**
      * Navigate to the given fragment.
@@ -211,11 +208,9 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, fragment);
-
         if (addToBackstack) {
             transaction.addToBackStack(null);
         }
-
         transaction.commit();
     }
 
@@ -229,10 +224,62 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomNavigationDrawerFragment();
-                bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+            case R.id.v_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
                 break;
+            case R.id.v_support:
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+
+                    KMUser chatUser = new KMUser();
+                    chatUser.setUserId(user.getUid()); // Pass a unique key
+                    new KmConversationBuilder(this).setKmUser(chatUser).launchConversation(new KmCallback() {
+                        @Override
+                        public void onSuccess(Object message) {
+//                           Log.d("Conversation", "Success : " + message);
+                        }
+
+                        @Override
+                        public void onFailure(Object error) {
+//                           Log.d("Conversation", "Failure : " + error);
+                        }
+                    });
+                } else {
+                    new KmConversationBuilder(this).launchConversation(new KmCallback() {
+                        @Override
+                        public void onSuccess(Object message) {
+//                           Log.d("Conversation", "Success : " + message);
+                        }
+
+                        @Override
+                        public void onFailure(Object error) {
+//                           Log.d("Conversation", "Failure : " + error);
+                        }
+                    });
+                }
+                break;
+            case R.id.v_subscription:
+                final String uniqueID = UUID.randomUUID().toString();
+                Intent intent = new Intent(MainActivity.this, SuccessForSubSubmitActivity.class);
+                intent.putExtra(ARGS_ORDER_ID, uniqueID);
+                intent.putExtra(ARGS_ORDER_AMOUNT, 3600);
+                intent.putExtra(ARGS_ORDER_AMOUNT_IN_DOLLAR, 100);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.v_logout:
+                FirebaseAuth.getInstance().signOut();
+                Kommunicate.logout(MainActivity.this, new KMLogoutHandler() {
+                    @Override
+                    public void onSuccess(Context context) {
+                    }
+                    @Override
+                    public void onFailure(Exception exception) {
+//                        Log.i("Logout","Failed");
+                    }
+                });
+                startActivity(new Intent(MainActivity.this, SplashScreenActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -568,8 +615,8 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
         private Toolbar mToolbar;
 
         ViewHolder() {
-            mDuoDrawerLayout = findViewById(R.id.drawer);
-            mDuoMenuView = (DuoMenuView) mDuoDrawerLayout.getMenuView();
+           // mDuoDrawerLayout = findViewById(R.id.drawer);
+           // mDuoMenuView = (DuoMenuView) mDuoDrawerLayout.getMenuView();
             mToolbar = findViewById(R.id.app_bar);
         }
     }
@@ -579,6 +626,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
 
     @Override
     public void onHeaderClicked() {}
+
 
     @Override
     public void onOptionClicked(int position, Object objectClicked) {
@@ -621,8 +669,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
                         }
                     });
                 }
-
-
                 break;
             case 3:
 //                String url = "https://paystack.com/pay/flgt9cgm8h";
@@ -633,7 +679,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, o
                 break;
             default:
                 goToFragment(new ProductGridFragment(), false);
-                mViewHolder.mDuoDrawerLayout.closeDrawer();
+                //mViewHolder.mDuoDrawerLayout.closeDrawer();
                 break;
         }
         // Close the drawer

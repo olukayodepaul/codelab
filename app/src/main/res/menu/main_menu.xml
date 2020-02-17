@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/v_home"
-        android:orderInCategory="100"
-        android:title="@string/_home"
-        app:showAsAction="never" />
 
     <item
         android:id="@+id/v_settings"
@@ -24,6 +19,12 @@
         android:id="@+id/v_subscription"
         android:orderInCategory="100"
         android:title="@string/_subscription"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/v_logout"
+        android:orderInCategory="100"
+        android:title="@string/_logout"
         app:showAsAction="never" />
 
 </menu>

@@ -37,7 +37,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.mobbile.paul.codelab.R;
 import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
 import com.mobbile.paul.shrine.adapters.BannersRequestAdapter;
-import com.mobbile.paul.shrine.adapters.IllustrationAdapter;
 import com.mobbile.paul.shrine.models.OrderObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -109,7 +108,7 @@ public class BannersRequestActivity extends AppCompatActivity {
 
 
         if (!checkPermissions()) {
-            Toast.makeText(this, "Permission needs to be granted to upload a banner", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Permission needs to be granted to upload a banner_1", Toast.LENGTH_LONG).show();
         }
 
         upload_button = findViewById(R.id.upload_button);
@@ -126,17 +125,16 @@ public class BannersRequestActivity extends AppCompatActivity {
         });
         BannersRequestAdapter illustrationAdapter = new BannersRequestAdapter();
         pager = findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
+        pager.setOffscreenPageLimit(2);
         pager.setAdapter(illustrationAdapter);
         progressBar = findViewById(R.id.progress_total);
-        progressBar.setMax(3);
+        progressBar.setMax(2);
         progressBar.setProgress(1);
 
         nextFab = findViewById(R.id.fab);
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-
             }
 
             @Override
@@ -147,8 +145,25 @@ public class BannersRequestActivity extends AppCompatActivity {
                 animation.setInterpolator(new DecelerateInterpolator());
                 animation.start();
 
+                if (i == 0) {
+                    nextFab.setText(R.string.next);
+                    Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_chevron_right);
+                    nextFab.setIcon(myFabSrc);
+                    nextFab.extend();
+                    nextFab.setOnClickListener(v -> {
+                        if(pager != null)
+                            pager.setCurrentItem(pager.getCurrentItem() + 1, true);
+                    });
+                } else if(i == 1) {
+                    nextFab.setText(R.string.submit_request_string);
+                    Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_check_black_24dp);
+                    nextFab.setIcon(myFabSrc);
+                    nextFab.extend();
+                    nextFab.setOnClickListener(v -> requestIllustration());
+                }
 
-                nextFab.setText(R.string.submit_request_string);
+
+                /*nextFab.setText(R.string.submit_request_string);
                 Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_check_black_24dp);
                 nextFab.setIcon(myFabSrc);
                 nextFab.extend();
@@ -161,7 +176,7 @@ public class BannersRequestActivity extends AppCompatActivity {
 
                         requestIllustration();
                     }
-                });
+                });*/
 
             }
 
@@ -171,15 +186,10 @@ public class BannersRequestActivity extends AppCompatActivity {
             }
         });
 
-        nextFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                requestIllustration();
-
-            }
+        nextFab.setOnClickListener(v -> {
+            if(pager != null)
+                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
         });
-
     }
 
 

@@ -36,18 +36,17 @@ public class SplashScreenActivity extends AwesomeSplash {
 //        configSplash.setPathSplash(Constants.DROID_LOGO); //set path String
         configSplash.setOriginalHeight(400); //in relation to your svg (path) resource
         configSplash.setOriginalWidth(400); //in relation to your svg (path) resource
-        configSplash.setAnimPathStrokeDrawingDuration(3000);
+        //configSplash.setAnimPathStrokeDrawingDuration(1000);
         configSplash.setPathSplashStrokeSize(3); //I advise value be <5
         configSplash.setPathSplashStrokeColor(R.color.colorDarkShade); //any color you want form colors.xml
         configSplash.setAnimPathFillingDuration(3000);
         configSplash.setPathSplashFillColor(R.color.colorWarmGreenText); //path object filling color
 
-
         //Customize Title
         configSplash.setTitleSplash("ACE DIGITAL");
         configSplash.setTitleTextColor(R.color.colorDarkShade);
         configSplash.setTitleTextSize(24f); //float value
-        configSplash.setAnimTitleDuration(4000);
+        configSplash.setAnimTitleDuration(100);
         configSplash.setAnimTitleTechnique(Techniques.DropOut);
 
     }

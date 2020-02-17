@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.mobbile.paul.codelab.R;
@@ -30,6 +31,7 @@ public class PayPal extends AppCompatActivity {
     private Button paymentButton;
     private Integer requestCode  = 101;
     private TextView edit_card_number;
+    private ImageButton BackButton;
 
 
     @SuppressLint("SetTextI18n")
@@ -39,24 +41,29 @@ public class PayPal extends AppCompatActivity {
         setContentView(R.layout.activity_pay_pal);
         paymentButton = findViewById(R.id.payment);
         edit_card_number = findViewById(R.id.edit_card_number);
+        BackButton = findViewById(R.id.backButton);
+
+        setUpPayPal();
+        rate = 360.0;//
 
         DecimalFormat f = new DecimalFormat("##.00");
-
-        rate = 360.0;//coming from fire base
         amountCharged = (double) getIntent().getIntExtra(ARGS_ORDER_AMOUNT, 0);
 
         amount = amountCharged / rate;
+
         edit_card_number.setText("$"+ f.format(amount));
 
-        setUpPayPal();
-
         paymentButton.setOnClickListener(v ->
-            stitchToPayPal()
+                stitchToPayPalForLogo()
+        );
+
+        BackButton.setOnClickListener(v ->
+                onBackPressed()
         );
     }
 
-    private void setUpPayPal() {
 
+    private void setUpPayPal() {
         String clientID = "ASDxc9rZ5c_ZjO-xjJUntoYdTIGa0Y86wr-3pf4ewaTjnCxLGmTThWMKsfK0NYIXODcbiLvcMMN0UOOQ"; //
         payPalConfiguration = new PayPalConfiguration()
                 .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
@@ -67,8 +74,8 @@ public class PayPal extends AppCompatActivity {
         startService(intent);
     }
 
-    private void stitchToPayPal() {
-
+    @SuppressLint("SetTextI18n")
+    private void stitchToPayPalForLogo() {
         String currency = "USD"; //PLACE HOLDER
         PayPalPayment payPalPayment = new PayPalPayment(new BigDecimal(amount), currency, "Ace Digital", PayPalPayment.PAYMENT_INTENT_SALE);
         Intent inten = new Intent(this, PaymentActivity.class);
@@ -83,8 +90,8 @@ public class PayPal extends AppCompatActivity {
         if(requestCode==101)
         {
             if(resultCode== Activity.RESULT_OK) {
-                //this could be fragment of activity
                 Intent intent = new Intent(this, ConfirmPayment.class);
+                intent.putExtra("Amount", amount);
                 startActivity(intent);
             }
         }

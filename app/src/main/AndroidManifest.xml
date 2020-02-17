@@ -23,6 +23,7 @@
         <activity android:name="com.mobbile.paul.shrine.formActivities.StationaryActivity" />
         <activity android:name="com.mobbile.paul.shrine.formActivities.BrandingRequestActivity" />
         <activity android:name="com.mobbile.paul.shrine.activity.SuccessSubmitActivity" />
+        <activity android:name="com.mobbile.paul.shrine.activity.SuccessForSubSubmitActivity" />
         <activity
             android:name="com.mobbile.paul.shrine.activity.IntroActivity"
             android:screenOrientation="portrait" />
@@ -95,6 +96,11 @@
             android:name="com.mobbile.paul.shrine.formActivities.LogoRequestActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.mobbile.paul.shrine.activity.SuccessInfluencer"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name="com.mobbile.paul.shrine.LoginActivity"
             android:screenOrientation="portrait"

@@ -40,7 +40,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.mobbile.paul.codelab.R;
 import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
 import com.mobbile.paul.shrine.adapters.IllustrationAdapter;
-import com.mobbile.paul.shrine.models.IllustrationRequest;
 import com.mobbile.paul.shrine.models.OrderObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;

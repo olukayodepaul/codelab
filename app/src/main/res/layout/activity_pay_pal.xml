@@ -111,12 +111,14 @@ tools:context="com.mobbile.paul.shrine.activity.PayPal">
                 android:hint="Amount"
                 app:helperTextEnabled="true">
 
-                <com.google.android.material.textfield.TextInputEditText
+
+                <EditText
                     android:id="@+id/edit_card_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
                     android:textSize="25sp"/>
+
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout

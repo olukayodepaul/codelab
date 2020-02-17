@@ -45,13 +45,14 @@ public class ColorPickerDialog extends DialogFragment {
         return f;
     }
 
-    public ColorPickerDialog() {}
+    public ColorPickerDialog() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle b = getArguments();
-        if( b != null ) {
+        if (b != null) {
             mColor = b.getInt(COLOR);
         }
     }
@@ -72,7 +73,7 @@ public class ColorPickerDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final Activity a = requireActivity();
-        AlertDialog.Builder b = new AlertDialog.Builder(a);
+        AlertDialog.Builder b = new AlertDialog.Builder(a,R.style.AlertDialogDanger);
         LayoutInflater inflater = a.getLayoutInflater();
         final View dv = inflater.inflate(R.layout.color_picker_dialog, null);
 
@@ -86,22 +87,21 @@ public class ColorPickerDialog extends DialogFragment {
                 colorSample.setBackgroundColor(color);
             }
         });
-
-        b.setView(dv).
-                setPositiveButton(R.string.choose, new DialogInterface.OnClickListener() {
+        b.setView(dv)
+                .setPositiveButton(R.string.choose, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if( callback != null ) {
+                        if (callback != null) {
                             callback.onColorSelected(mColor);
                         }
                     }
-                }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
         return b.create();
     }
 }

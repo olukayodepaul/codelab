@@ -24,6 +24,7 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/success" />
+
         <TextView
             android:id="@+id/product_description"
             android:layout_width="match_parent"
@@ -49,12 +50,13 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
-            android:text="Pay with "
+            android:text="Pay with PayPal"
             android:onClick="onBraintreeSubmit"
-            app:iconSize="@dimen/_44sdp"
             app:icon="@drawable/ic_paypal_text"
             app:iconGravity="textEnd"
+            android:textAlignment="center"
             android:textColor="@color/bt_paypal_monogram_button_background_pressed" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/paymentButton"
             style="@style/Widget.MaterialComponents.Button"
@@ -63,8 +65,9 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
+            android:textAlignment="center"
             android:text="Pay with Paystack"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorWarmDarkPink" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/completeButton"
@@ -78,9 +81,5 @@
                 android:textColor="@color/colorDarkShade"
                 android:text="Finish"
                 tools:ignore="UnusedAttribute" />
-
-
-
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

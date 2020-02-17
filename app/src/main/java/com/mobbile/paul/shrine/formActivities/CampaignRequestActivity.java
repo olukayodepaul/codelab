@@ -24,7 +24,6 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.mobbile.paul.codelab.R;
-import com.mobbile.paul.shrine.activity.PaymentActivity;
 import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
 import com.mobbile.paul.shrine.adapters.CampaignRequestAdapter;
 import com.mobbile.paul.shrine.models.OrderObject;

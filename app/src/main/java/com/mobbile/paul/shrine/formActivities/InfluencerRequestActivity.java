@@ -13,7 +13,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -27,9 +26,8 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.mobbile.paul.codelab.R;
-import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
+import com.mobbile.paul.shrine.activity.SuccessInfluencer;
 import com.mobbile.paul.shrine.adapters.InfluencerRequestAdapter;
-import com.mobbile.paul.shrine.models.InfluencerRequest;
 import com.mobbile.paul.shrine.models.OrderObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -39,10 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
-
-import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT;
-import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_AMOUNT_IN_DOLLAR;
-import static com.mobbile.paul.shrine.activity.SuccessSubmitActivity.ARGS_ORDER_ID;
 
 public class InfluencerRequestActivity extends AppCompatActivity {
 
@@ -94,30 +88,21 @@ public class InfluencerRequestActivity extends AppCompatActivity {
         nextFab.shrink();
 
 
-        imagesRadioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    modeSelected = IMAGE_MODE;
-                }
+        imagesRadioButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                modeSelected = IMAGE_MODE;
             }
         });
 
-        videosRadioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    modeSelected = VIDEO_MODE;
-                }
+        videosRadioButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                modeSelected = VIDEO_MODE;
             }
         });
 
-        bothRadioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    modeSelected = BOTH_MODE;
-                }
+        bothRadioButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                modeSelected = BOTH_MODE;
             }
         });
 //        influencerEditText.requestFocus();
@@ -144,23 +129,15 @@ public class InfluencerRequestActivity extends AppCompatActivity {
                     Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_check_black_24dp);
                     nextFab.setIcon(myFabSrc);
                     nextFab.extend();
-                    nextFab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            requestInfluencer();
-                        }
-                    });
+                    nextFab.setOnClickListener(v -> requestInfluencer());
                 } else {
                     nextFab.setText(R.string.next);
                     Drawable myFabSrc = getResources().getDrawable(R.drawable.ic_chevron_right);
                     nextFab.setIcon(myFabSrc);
                     nextFab.shrink();
-                    nextFab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (pager != null)
-                                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
-                        }
+                    nextFab.setOnClickListener(v -> {
+                        if (pager != null)
+                            pager.setCurrentItem(pager.getCurrentItem() + 1, true);
                     });
                 }
             }
@@ -171,13 +148,10 @@ public class InfluencerRequestActivity extends AppCompatActivity {
             }
         });
 
-        nextFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        nextFab.setOnClickListener(v -> {
 
-                if (pager != null)
-                    pager.setCurrentItem(pager.getCurrentItem() + 1, true);
-            }
+            if (pager != null)
+                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
         });
 
     }
@@ -216,14 +190,13 @@ public class InfluencerRequestActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void aVoid) {
                 setLoading(false);
-                displaySuccessRequest(uniqueID);
+                displaySuccessRequest();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 setLoading(false);
-
                 Snackbar.make(nextFab, e.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
             }
         });
@@ -240,15 +213,10 @@ public class InfluencerRequestActivity extends AppCompatActivity {
         nextFab.setVisibility(isLoading ? View.INVISIBLE : View.VISIBLE);
     }
 
-    private void displaySuccessRequest(String uniqueId) {
-        Intent intent = new Intent(this, SuccessSubmitActivity.class);
-        intent.putExtra(ARGS_ORDER_ID, uniqueId);
-        intent.putExtra(ARGS_ORDER_AMOUNT, 0);
-        intent.putExtra(ARGS_ORDER_AMOUNT_IN_DOLLAR, 0);
-
+    private void displaySuccessRequest() {
+        Intent intent = new Intent(this, SuccessInfluencer.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
-
     }
 }

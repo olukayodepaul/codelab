@@ -159,8 +159,8 @@ public class BannersFragment extends Fragment {
 
         checkPermissions();
         spinnerlist = new ArrayList<>();
-        spinnerlist.add("Online banner");
-        spinnerlist.add("Physical banner");
+        spinnerlist.add("Online banner_1");
+        spinnerlist.add("Physical banner_1");
 
         if (getContext() != null) {
             spinneradapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_activated_1

@@ -53,7 +53,7 @@
     <string name="branding_amp_merchandizing"><![CDATA[Branding & Merchandising]]></string>
     <string name="storyboard">Storyboard</string>
     <string name="select_script_to_upload">Upload Script</string>
-    <string name="banner">Banners</string>
+    <string name="banner">Social Media Banners</string>
     <string name="i_love_my_banner_static">I love my banner static</string>
     <string name="i_love_my_banner_animated">I love my banner animated</string>
     <string name="influence_booking">Influencer Booking</string>
@@ -65,9 +65,9 @@
     <string name="brand_info">Brand Info</string>
     <string name="success_request">Your request has been received, Click Pay to complete request.</string>
     <string name="clear">Clear</string>
-    <string name="build_up_to_1k_followers_in_3_months">Build up to 1000 active followers in 3 months</string>
-    <string name="get_up_to_5k_followers_in_6_months">Get up to 5k followers in 6 months</string>
-    <string name="get_over_20k_followers_in_1_year">Get over 20k followers in 1 year</string>
+    <string name="build_up_to_1k_followers_in_3_months">Build up to 1000 active followers and 100,000 impressions </string>
+    <string name="get_up_to_5k_followers_in_6_months">Get up to 5k followers over 25k impressions</string>
+    <string name="get_over_20k_followers_in_1_year">Get over 20k followers and over 50k impressions</string>
     <string name="_10_000_impressions_in_3_months">100,000 impressions in 3 months</string>
     <string name="over_25k_impressions_in_6_months">Over 25k impressions in 6 months</string>
     <string name="over_50k_impressions_in_1_year">Over 50k impressions in 1 year</string>
@@ -125,7 +125,7 @@
     <string name="_25_interactive_tweet">25 interactive tweets per month for twitter</string>
     <string name="_3_contents_per_week_12_content">3 contents per week, 12 contents per month for LinkedIn</string>
     <string name="upload_complete">Upload Complete</string>
-    <string name="request_catalog">Request Catalog</string>
+    <string name="request_catalog">Submit</string>
     <string name="success_no_payment_string">Congrats! You have made a request. A member of our team will contact you to follow up your request</string>
     <string name="linkdin">LinkedIn Image Dimensions | File Sizes Banner image: 1584 x 396 | maximum 4 MB Profile image: 400 x 400 (minimum 200 x 200) | maximum 10 MB Company Cover image: 1536 x 768 Shared image: 350 pixels wide Shared link preview: 180 x 110 Company logo image: 300 x 300 | maximum 4 MB Company cover image: 1536 x 768 (minimum 1192 x 220) | maximum 4 MB Company page banner image: 646 x 220 | maximum 2 MB Square logo (appears in company searches): 60 x 60 | maximum 2 MB</string>
     <string name="youtube_dimensions">YouTube Image Dimensions | File Sizes Channel cover images: 2560 x 1440 | maximum 4 MB Channel icon: 800 x 800 Video thumbnail: 1280 x 720</string>
@@ -134,6 +134,7 @@
     <string name="facebook_dimensions">Facebook Image Dimensions | File Sizes Cover image: 820 x 312 (minimum 400 x 150) Profile image: 180 x 180 Shared post image: 1200 x 630 Shared link preview image: 1200 x 628 Event image: 1920 x 1080</string>
     <string name="snapchat_dimensions">Snapchat Image Dimensions Geofilters, ads, and lenses: 1080 x 1920</string>
     <string name="finalize_payment">Congrats! You have made a request. A member of our team will contact you to follow up your request. Kindly click the payment button to finalize your request</string>
+    <string name="finalize_payments">This gives you access to unlimited reverts and some free contents on our platform. Click the payment button to finalize your request.</string>
     <!--<string name="default_web_client_id">480228879948-tj1tiu5h1bj6dma2n9vqg3d2o402fp3q.apps.googleusercontent.com</string>-->
 
     <array name="menuOptions">
@@ -144,7 +145,7 @@
     </array>
 
     <!--this is paul addition. add the menu and remove the navdrawer from the main activity -->
-    <string name="_home">Home</string>
+    <string name="_logout">Logout</string>
     <string name="_settings">Settings</string>
     <string name="_support">Supports</string>
     <string name="_subscription">Subscription</string>

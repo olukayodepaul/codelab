@@ -22,7 +22,6 @@ import com.braintreepayments.api.models.PaymentMethodNonce;
 import com.google.android.material.snackbar.Snackbar;
 import com.mobbile.paul.codelab.R;
 import com.mobbile.paul.shrine.MainActivity;
-import com.mobbile.paul.shrine.models.TokenResponse;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -70,6 +69,7 @@ public class SuccessSubmitActivity extends AppCompatActivity {
         contentLay.addView(item, 0);
 
         description = findViewById(R.id.product_description);
+
         if (amount == 0) {
             isPaymentRequired = false;
         }
@@ -82,7 +82,7 @@ public class SuccessSubmitActivity extends AppCompatActivity {
             findViewById(R.id.paymentButton).setVisibility(View.GONE);
         } else if (!isDollarPaymentRequired && isPaymentRequired) {
             description.setText(String.format(Locale.getDefault(), "%s Amount: NGN%d", getString(R.string.finalize_payment), amount));
-            findViewById(R.id.paypalPaymentButton).setVisibility(View.GONE);
+            //findViewById(R.id.paypalPaymentButton).setVisibility(View.GONE);
         } else {
             description.setText(String.format(Locale.getDefault(), "%s Amount $%dAmount , NGN%d", getString(R.string.finalize_payment), amountInDollars, amount));
         }

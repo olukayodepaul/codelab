@@ -19,13 +19,19 @@ public class BannersRequestAdapter  extends PagerAdapter {
             case 0:
                 resId = R.id.page_one;
                 break;
+
+            case 1:
+                resId = R.id.page_two;
+                break;
         }
+
         return collection.findViewById(resId);
+
     }
 
     @Override
     public int getCount() {
-        return 1;
+        return 2;
     }
 
     @Override

@@ -2,8 +2,6 @@ package com.mobbile.paul.shrine.activity;
 
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
-
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;

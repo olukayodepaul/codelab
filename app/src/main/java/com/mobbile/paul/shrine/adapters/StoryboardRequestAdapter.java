@@ -13,11 +13,13 @@ public class StoryboardRequestAdapter extends PagerAdapter {
 
     @NonNull
     public Object instantiateItem(@NonNull ViewGroup collection, int position) {
-
         int resId = 0;
         switch (position) {
             case 0:
                 resId = R.id.page_one;
+                break;
+            case 1:
+                resId = R.id.page_two;
                 break;
         }
         return collection.findViewById(resId);
@@ -25,7 +27,7 @@ public class StoryboardRequestAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 1;
+        return 2;
     }
 
     @Override

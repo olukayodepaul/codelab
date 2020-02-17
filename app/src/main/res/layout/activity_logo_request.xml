@@ -1,8 +1,10 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.mobbile.paul.shrine.formActivities.LogoRequestActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/main.appbar"
@@ -27,7 +29,6 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_category_design___logo"
                 app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
@@ -103,6 +104,7 @@
 
         </RelativeLayout>
 
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
@@ -110,288 +112,295 @@
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_12sdp">
 
-            <LinearLayout
+            <androidx.core.widget.NestedScrollView
                 android:id="@+id/page_one"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    app:srcCompat="@drawable/ic_number01" />
-
-                <TextView
-                    android:id="@+id/product_question"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:text="What's your business name?"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#474243"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/brandNameEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_48sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:background="@android:color/white"
-                    android:inputType="textFilter"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/_18sdp" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_12sdp"
-                        android:layout_toEndOf="@id/hint_view"
-                        android:text="Please, stick to just the name of your business and no extra information"
-                        android:textAppearance="?attr/textAppearanceCaption"
-                        android:textColor="#474243"
-                        android:textStyle="normal" />
-
-                    <View
-                        android:id="@+id/hint_view"
-                        android:layout_width="@dimen/_2sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_alignParentStart="true"
-                        android:background="#ece1d6" />
-
-
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:id="@+id/page_two"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    app:srcCompat="@drawable/ic_number02" />
-
-                <TextView
-                    android:id="@+id/inspiration_question"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:text="@string/logo_inspiration_question"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#474243"
-                    android:textStyle="bold" />
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inspiration_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_48sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    android:background="@android:color/white"
-                    android:hint="#Inspiration 1"
-                    android:inputType="textFilter"
-                    android:nextFocusDown="@id/inspiration_2"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/_18sdp" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inspiration_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_48sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    android:background="@android:color/white"
-                    android:hint="#Inspiration 2"
-                    android:inputType="textFilter"
-                    android:nextFocusDown="@id/inspiration_3"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/_18sdp" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inspiration_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_48sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    android:background="@android:color/white"
-                    android:hint="#Inspiration 3"
-                    android:inputType="textFilter"
-                    android:nextFocusDown="@id/inspiration_4"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/_18sdp" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inspiration_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_48sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    android:background="@android:color/white"
-                    android:hint="#Inspiration 4"
-                    android:inputType="textFilter"
-                    android:nextFocusDown="@id/inspiration_5"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/_18sdp" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inspiration_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_48sdp"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:background="@android:color/white"
-                    android:hint="#Inspiration 5"
-                    android:inputType="textFilter"
-                    android:nextFocusDown="@id/inspiration_1"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/_18sdp" />
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_12sdp"
-                        android:layout_toEndOf="@id/hint_view_page_2"
-                        android:text="Kindly share not more than five samples, alongside the brand names, each seperated by commas. This will aid us in understanding what direction you seek for your brand"
-                        android:textAppearance="?attr/textAppearanceCaption"
-                        android:textColor="#474243"
-                        android:textStyle="normal" />
-
-                    <View
-                        android:id="@+id/hint_view_page_2"
-                        android:layout_width="@dimen/_2sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:layout_alignParentStart="true"
-                        android:background="#ece1d6" />
-
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/page_three"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    app:srcCompat="@drawable/ic_number03" />
-
-                <TextView
-                    android:id="@+id/color_question"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:text="Select 3 colours you believe, represent your business identity"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#474243"
-                    android:textStyle="bold" />
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/colour_1"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_16sdp"
-                        android:layout_weight="1"
-                        android:background="#F3EFE8"
-                        android:drawableEnd="@drawable/ic_expand_more"
-                        android:elevation="0dp"
-                        android:padding="@dimen/_8sdp"
-                        android:text="Color #1"
-                        android:textAppearance="@android:style/TextAppearance.Material.Caption"
-                        android:textColor="#474243"
-                        android:textStyle="bold"
-                        app:elevation="0dp" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/colour_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_8sdp"
-                        android:layout_weight="1"
-                        android:background="#F3EFE8"
-                        android:drawableEnd="@drawable/ic_expand_more"
-                        android:elevation="0dp"
-                        android:padding="@dimen/_8sdp"
-                        android:text="Color #2"
-                        android:textAppearance="@android:style/TextAppearance.Material.Caption"
-                        android:textColor="#474243"
-                        android:textStyle="bold"
-                        app:elevation="0dp" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/colour_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_8sdp"
-                        android:layout_weight="1"
-                        android:background="#F3EFE8"
-                        android:drawableEnd="@drawable/ic_expand_more"
-                        android:elevation="0dp"
-                        android:padding="@dimen/_8sdp"
-                        android:text="Color #3"
-                        android:textAppearance="@android:style/TextAppearance.Material.Caption"
-                        android:textColor="#474243"
-                        android:textStyle="bold"
-                        app:elevation="0dp" />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                        app:srcCompat="@drawable/ic_number01" />
 
                     <TextView
+                        android:id="@+id/product_question"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_12sdp"
-                        android:layout_toEndOf="@id/hint_view_3"
-                        android:text="Please ensure you select colours you would want appearing on your logo"
-                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:text="What's your business name?"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="#474243"
-                        android:textStyle="normal" />
+                        android:textStyle="bold" />
 
-                    <View
-                        android:id="@+id/hint_view_3"
-                        android:layout_width="@dimen/_2sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_alignParentStart="true"
-                        android:background="#ece1d6" />
-                </RelativeLayout>
-            </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/brandNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:background="@android:color/white"
+                        android:inputType="textFilter"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_toEndOf="@id/hint_view"
+                            android:text="Please, stick to just the name of your business and no extra information"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textColor="#474243"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/hint_view"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_alignParentStart="true"
+                            android:background="#ece1d6" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/page_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:srcCompat="@drawable/ic_number02" />
+
+                    <TextView
+                        android:id="@+id/inspiration_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:text="@string/logo_inspiration_question"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#474243"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inspiration_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:background="@android:color/white"
+                        android:hint="#Inspiration 1"
+                        android:inputType="textFilter"
+                        android:nextFocusDown="@id/inspiration_2"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inspiration_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:background="@android:color/white"
+                        android:hint="#Inspiration 2"
+                        android:inputType="textFilter"
+                        android:nextFocusDown="@id/inspiration_3"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inspiration_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:background="@android:color/white"
+                        android:hint="#Inspiration 3"
+                        android:inputType="textFilter"
+                        android:nextFocusDown="@id/inspiration_4"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inspiration_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:background="@android:color/white"
+                        android:hint="#Inspiration 4"
+                        android:inputType="textFilter"
+                        android:nextFocusDown="@id/inspiration_5"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inspiration_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:background="@android:color/white"
+                        android:hint="#Inspiration 5"
+                        android:inputType="textFilter"
+                        android:nextFocusDown="@id/inspiration_1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sdp" />
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_toEndOf="@id/hint_view_page_2"
+                            android:text="Kindly share not more than five samples, alongside the brand names, each seperated by commas. This will aid us in understanding what direction you seek for your brand"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textColor="#474243"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/hint_view_page_2"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_alignParentStart="true"
+                            android:background="#ece1d6" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/page_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:srcCompat="@drawable/ic_number03" />
+
+                    <TextView
+                        android:id="@+id/color_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:text="Select 3 colours you believe, represent your business identity"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#474243"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/colour_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:layout_weight="1"
+                            android:background="#F3EFE8"
+                            android:drawableEnd="@drawable/ic_expand_more"
+                            android:elevation="0dp"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Color #1"
+                            android:textAppearance="@android:style/TextAppearance.Material.Caption"
+                            android:textColor="#474243"
+                            android:textStyle="bold"
+                            app:elevation="0dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/colour_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1"
+                            android:background="#F3EFE8"
+                            android:drawableEnd="@drawable/ic_expand_more"
+                            android:elevation="0dp"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Color #2"
+                            android:textAppearance="@android:style/TextAppearance.Material.Caption"
+                            android:textColor="#474243"
+                            android:textStyle="bold"
+                            app:elevation="0dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/colour_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1"
+                            android:background="#F3EFE8"
+                            android:drawableEnd="@drawable/ic_expand_more"
+                            android:elevation="0dp"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Color #3"
+                            android:textAppearance="@android:style/TextAppearance.Material.Caption"
+                            android:textColor="#474243"
+                            android:textStyle="bold"
+                            app:elevation="0dp" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_12sdp"
+                            android:layout_toEndOf="@id/hint_view_3"
+                            android:text="Please ensure you select colours you would want appearing on your logo"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textColor="#474243"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/hint_view_3"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_alignParentStart="true"
+                            android:background="#ece1d6" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
         </androidx.viewpager.widget.ViewPager>
 
 
@@ -404,7 +413,6 @@
         android:layout_gravity="end|bottom"
         android:layout_weight="1"
         android:animateLayoutChanges="true">
-
 
         <ProgressBar
             android:id="@+id/loading_progress"

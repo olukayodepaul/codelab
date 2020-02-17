@@ -3,13 +3,10 @@ package com.mobbile.paul.shrine.formActivities;
 import android.animation.ObjectAnimator;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.transition.Fade;
 import androidx.transition.Transition;
@@ -36,7 +33,6 @@ import android.widget.TextView;
 import com.mobbile.paul.codelab.R;
 import com.mobbile.paul.shrine.LogoRequestAdapter;
 import com.mobbile.paul.shrine.activity.PayPal;
-import com.mobbile.paul.shrine.activity.PaymentActivity;
 import com.mobbile.paul.shrine.activity.SuccessSubmitActivity;
 import com.mobbile.paul.shrine.fragments.ColorPickerDialog;
 import com.mobbile.paul.shrine.models.OrderObject;
@@ -185,9 +181,9 @@ public class LogoRequestActivity extends AppCompatActivity {
                 v.setBackgroundColor(color);
                 colour_3 = String.format("#%06X", 0xFFFFFF & color);
             });
+
             dialog.show(getSupportFragmentManager(), "Color Wheel 3");
         });
-
     }
 
     TextWatcher textWatcher = new TextWatcher() {
